@@ -16,7 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
 
-  declarations: [  HeaderComponent, FooterComponent,PagerComponent],
+  declarations: [HeaderComponent,FooterComponent,PagerComponent],
 
   imports: [
 
@@ -26,7 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
   ],
 
-  exports:[PaginationModule,PagerComponent]
+  exports:[PaginationModule,PagerComponent,HeaderComponent,FooterComponent]
 
 })
 
