@@ -9,6 +9,7 @@ import { PagerComponent } from './Components/pager/pager.component';
 import { HeaderComponent } from './components/header/header.component';
 
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
 
     CommonModule,
 
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    RouterModule
 
   ],
 

@@ -12,6 +12,7 @@ import {SharedModule} from './shared/shared.module';
 import {ExploreModule} from './explore/explore.module';
 import {HomeModule} from './home/home.module';
 import {RegisterModule} from './register/register.module'
+import { RouterLink, RouterModule } from '@angular/router';
 //import {SharedModule} from './shared/shared/shared.module'
 
 
@@ -31,7 +32,8 @@ import {RegisterModule} from './register/register.module'
     SharedModule,
     ExploreModule,
     HomeModule,
-    RegisterModule
+    RegisterModule,
+    RouterModule,
     
     
   

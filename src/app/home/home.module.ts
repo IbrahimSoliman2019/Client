@@ -7,15 +7,16 @@ import { PlacesComponent } from './Components/places/places.component';
 import { HotelsComponent } from './Components/hotels/hotels.component';
 import { GalaryComponent } from './Components/galary/galary.component';
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
+import { HomeComponent } from './Components/home/home.component';
 
 
 
 @NgModule({
-  declarations: [ AboutComponent, ExploreNearbtComponent, PlacesComponent, HotelsComponent, GalaryComponent, ContactUsComponent],
+  declarations: [ AboutComponent, ExploreNearbtComponent, PlacesComponent, HotelsComponent, GalaryComponent, ContactUsComponent, HomeComponent],
   imports: [
     CommonModule
   ],
-  exports:[AboutComponent,ExploreNearbtComponent,PlacesComponent,HotelsComponent,GalaryComponent,ContactUsComponent]
+  exports:[HomeComponent]
 
 })
 export class HomeModule { }
