@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class LogInComponent implements OnInit {
 
   constructor() { }
-
+  email:string="";
+  password:string="";
+  OnFormSave(log)
+  {
+    console.log("Submit form")
+  }
   ngOnInit(): void {
   }
 

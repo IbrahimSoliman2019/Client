@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import {SharedModule} from './shared/shared.module';
 import {ExploreModule} from './explore/explore.module';
 import {HomeModule} from './home/home.module';
@@ -34,8 +34,8 @@ import { RouterLink, RouterModule } from '@angular/router';
     HomeModule,
     RegisterModule,
     RouterModule,
-    
-    
+    FormsModule,
+
   
   ],
   providers: [],

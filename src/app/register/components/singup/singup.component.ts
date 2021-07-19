@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SingupComponent implements OnInit {
 
   constructor() { }
-
+  OnFormSave(log)
+  {
+    console.log("Submit form")
+  }
   ngOnInit(): void {
   }
 

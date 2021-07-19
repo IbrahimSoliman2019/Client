@@ -4,6 +4,8 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { LogInBodyComponent } from './components/log-in/log-in-body/log-in-body.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -15,7 +17,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule ,
+    FormsModule,
+    
   ],
   exports:[LogInComponent,SingupComponent]
 
