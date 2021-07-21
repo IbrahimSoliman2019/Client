@@ -14,6 +14,10 @@ import {HomeModule} from './home/home.module';
 import {RegisterModule} from './register/register.module'
 import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
+import { DescriptionComponent } from './hoteldetail/description/description.component';
+import { RoomsComponent } from './hoteldetail/rooms/rooms.component';
+import { LocationComponent } from './hoteldetail/location/location.component';
+import { ReviewsComponent } from './hoteldetail/reviews/reviews.component';
 //import {SharedModule} from './shared/shared/shared.module'
 
 
@@ -21,7 +25,12 @@ import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.s
 @NgModule({
   declarations: [
     AppComponent,
-    
+    DescriptionComponent,
+    RoomsComponent,
+    LocationComponent,
+    ReviewsComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,6 @@ import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.s
     RouterModule,
     FormsModule,
 
-  
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptorService,multi:true}
