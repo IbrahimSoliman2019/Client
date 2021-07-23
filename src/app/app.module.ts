@@ -14,10 +14,7 @@ import {HomeModule} from './home/home.module';
 import {RegisterModule} from './register/register.module'
 import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
-import { DescriptionComponent } from './hoteldetail/description/description.component';
-import { RoomsComponent } from './hoteldetail/rooms/rooms.component';
-import { LocationComponent } from './hoteldetail/location/location.component';
-import { ReviewsComponent } from './hoteldetail/reviews/reviews.component';
+
 //import {SharedModule} from './shared/shared/shared.module'
 
 
@@ -25,10 +22,7 @@ import { ReviewsComponent } from './hoteldetail/reviews/reviews.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DescriptionComponent,
-    RoomsComponent,
-    LocationComponent,
-    ReviewsComponent,
+
 
 
   ],
@@ -45,6 +39,7 @@ import { ReviewsComponent } from './hoteldetail/reviews/reviews.component';
     RegisterModule,
     RouterModule,
     FormsModule,
+    ExploreModule,
 
   ],
   providers: [
