@@ -107,24 +107,41 @@
                     <div class="col-md-8 col-10 my-5">
                         <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="assets/img/logo.png"> </div>
                         <h6 class="msg-info">Please sign up for new account</h6>
-                        <form  (ngSubmit)="OnFormSave(log)" #log="ngForm" class="login100-form validate-form">
-                        <div class="form-group"> 
+                        <form  (ngSubmit)="OnFormSave($event)" #log="ngForm" class="login100-form validate-form">
+                          {{log.value |json}}
+
+                          <div class="form-group"> 
                           <label class="form-control-label text-muted">Fullname</label>
-                          <input type="text" id="text" name="text" placeholder="Full name" class="form-control">
+                          <input type="text"  #f1="ngModel" id="name" required  minlength="3" [(ngModel)]="name"    name="Name" placeholder="Full name" class="form-control">
+                          <span *ngIf="f1.errors?.required&& f1.touched">Fullname is not valied</span>
+                          <span *ngIf="f1.errors?.minlength && f1.touched">minlength less than 3</span>
                          </div>
-                        <div class="form-group">
-                           <label class="form-control-label text-muted">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Email" class="form-control"> </div>
-                        <div class="form-group"> 
+                    
+                         <div class="form-group">
+                          <label class="form-control-label text-muted">Email</label>
+                           <input type="email" id="email"  required email  [(ngModel)]="email"  #f2="ngModel" name="email" placeholder="Email" class="form-control"> 
+                           <span *ngIf="f2.invalid && f2.touched">Email is not valied</span>
+                           <!-- <span *ngIf="f2.errors?.email">Email must be a valid email address</span> -->
+                         </div>
+
+                            <div class="form-group"> 
                           <label class="form-control-label text-muted">Username</label> 
-                          <input type="email" id="email" name="email" placeholder="User name" class="form-control"> </div>
-                        <div class="form-group"> 
+                          <input type="email" id="username"   required  ngModel  #f3="ngModel"  name="email" placeholder="User name" class="form-control"> </div>
+                          <span *ngIf="f3.invalid && f3.touched">UserName is not valied</span>
+
+                          <div class="form-group"> 
                           <label class="form-control-label text-muted">Password</label>
-                           <input type="password" id="psw" name="psw" placeholder="Password" class="form-control"> </div>
-                        <div class="form-group"> 
+                           <input type="password" id="psw"   required  ngModel  #f4="ngModel"  name="psw" placeholder="Password" class="form-control"> </div>
+                           <span *ngIf="f4.invalid && f4.touched">Password is not valied</span>
+
+                           <div class="form-group"> 
                           <label class="form-control-label text-muted">Confirm Password</label> 
-                          <input type="password" id="psw" name="psw" placeholder="Confirm Password" class="form-control"> </div>
-                        <div class="row justify-content-center my-3 px-3"> <button class="btn-block btn-color">Sign Up to Transengs</button> </div>
+                          <input type="password" id="psw"    required  ngModel  #f5="ngModel" name="psw" placeholder="Confirm Password" class="form-control"> </div>
+                          <span *ngIf="f5.invalid && f5.touched">Password is not valied</span>
+
+                          <div class="row justify-content-center my-3 px-3">
+                             <button type="submit"  class="btn-block btn-color">Sign Up to Transengs</button>
+                             </div>
                       </form>
                       </div>
                 </div>
@@ -136,11 +153,9 @@
                         <i class="fa fa-long-arrow-right m-l-5"></i>
                       </a>
                     </p>
-                     
-
-
-
+                    
                 </div>
+
             </div>
             <div class="card card2">
                 <div class="my-auto mx-md-5 px-md-5 right">

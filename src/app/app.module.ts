@@ -35,6 +35,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     RegisterModule,
     RouterModule,
     FormsModule,
+    
 
   
   ],

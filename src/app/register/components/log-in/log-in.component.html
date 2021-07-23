@@ -94,11 +94,15 @@
                         <form  (ngSubmit)="OnFormSave(log)" #log="ngForm" class="login100-form validate-form  ">
                         <div class="form-group ">
                            <label class="form-control-label text-muted">Username</label>
-                           <input type="text" ngModel id="email" name="email" placeholder=" email address" class="form-control"> </div>
-                        <div class="form-group ">
+                           <input type="text" ngModel #f1="ngModel" id="email" required name="email" placeholder=" email address" class="form-control"> </div>
+                      <span *ngIf="f1.invalid && f1.touched">email is not valied</span>
+                           <div class="form-group ">
                            <label class="form-control-label text-muted">Password</label>
-                           <input type="password"  ngModel id="psw" name="psw" placeholder="Password" class="form-control">
-                           </div>
+                         
+                           <input type="password" required   #f2="ngModel" ngModel id="psw" name="psw" placeholder="Password" class="form-control">
+                           <span *ngIf="f2.invalid && f2.touched">password is not valied</span>
+
+                          </div>
 
                         <div class="row justify-content-center my-3 px-3">
                            <button class="btn-block btn-color ">Login to Transengs</button> 
