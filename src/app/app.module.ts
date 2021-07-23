@@ -36,6 +36,7 @@ import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.s
     RegisterModule,
     RouterModule,
     FormsModule,
+    HttpClientModule
 
   
   ],
