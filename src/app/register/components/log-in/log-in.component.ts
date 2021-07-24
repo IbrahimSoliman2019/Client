@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../../Model/user';
+import {UsersService } from '../../Services/users.service' ;
 
 @Component({
   selector: 'app-log-in',
@@ -6,14 +9,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
-
-  constructor() { }
   email:string="";
   password:string="";
-  OnFormSave(log)
+  checkUser=new User ('','','');
+  check:any;
+  error:any;
+
+  
+
+  Login(login:ElementRef)
   {
-    console.log("Submit form")
+    console.log(login.nativeElement);
+    /* this.email=login.value.email;
+    this.password=login.value.password;
+    this.checkUser=new User ('',this.email,this.password);
+
+  this.UserSer.GetUser(this.checkUser).subscribe(response=>{
+    this.checkUser=response
+  },error=>{
+    this.error=error
   }
+  );
+  console.log(login);
+
+    if (!this.error)
+    {
+      this.route.navigateByUrl("");
+    }
+    else
+    {
+      alert("Please sure that email and password is correct")
+    } */
+  }
+
+
+
+
+  constructor(public UserSer:UsersService,public route:Router) { }
+
   ngOnInit(): void {
   }
 

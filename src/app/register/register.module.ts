@@ -5,6 +5,7 @@ import { LogInBodyComponent } from './components/log-in/log-in-body/log-in-body.
 import { SingupComponent } from './components/singup/singup.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,9 +18,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RouterModule ,
     FormsModule,
+    HttpClientModule
     
   ],
-  exports:[LogInComponent,SingupComponent]
+  exports: [LogInComponent, SingupComponent]
 
 })
 export class RegisterModule { }

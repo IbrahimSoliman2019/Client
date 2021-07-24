@@ -1,171 +1,92 @@
-<!-- <main id="main">
-    <div class="limiter">
-      <div class="container-login100">
-        <div class="login100-more" style="background-image: url('assets/img/signup.jpg');"></div>
-  
-        <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-          <form class="login100-form validate-form">
-            <span class="login100-form-title p-b-59">
-              Sign Up
-            </span>
-  
-            <div class="wrap-input100 validate-input" data-validate="Name is required">
-              <span class="label-input100">Full Name</span>
-              <input class="input100" type="text" name="name" placeholder="Name...">
-              <span class="focus-input100"></span>
-            </div>
-  
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <span class="label-input100">Email</span>
-              <input class="input100" type="text" name="email" placeholder="Email addess...">
-              <span class="focus-input100"></span>
-            </div>
-  
-            <div class="wrap-input100 validate-input" data-validate="Username is required">
-              <span class="label-input100">Username</span>
-              <input class="input100" type="text" name="username" placeholder="Username...">
-              <span class="focus-input100"></span>
-            </div>
-  
-            <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <span class="label-input100">Password</span>
-              <input class="input100" type="text" name="pass" placeholder="*************">
-              <span class="focus-input100"></span>
-            </div>
-  
-            <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-              <span class="label-input100">Repeat Password</span>
-              <input class="input100" type="text" name="repeat-pass" placeholder="*************">
-              <span class="focus-input100"></span>
-            </div>
-  
-            <div class="flex-m w-full p-b-33">
-              <div class="contact100-form-checkbox">
-                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                <label class="label-checkbox100" for="ckb1">
-                  <span class="txt1">
-                    I agree to the
-                    <a href="#" class="txt2 hov1">
-                      Terms of User
-                    </a>
-                  </span>
-                </label>
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+    <h1 class="mb-4 pb-0">The Greatest<br><span>Marketing</span> OutDoors</h1>
+    <p class="mb-4 pb-0">Wishlists curated by Transengs.</p>
+    <a href="#about" class="about-btn scrollto">About The Website</a>
+  </div>
+</section><!-- End Hero Section -->
+
+<div class="container px-4 py-5 mx-auto">
+  <div class="card card0">
+    <div class="d-flex flex-lg-row flex-column-reverse">
+      <div class="card card1">
+        <div class="row justify-content-center my-auto">
+          <div class="col-md-8 col-10 my-5">
+            <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="assets/img/logo.png"> </div>
+            <h6 class="msg-info">Please sign up for new account</h6>
+    
+            <form #signUp="ngForm" class="login100-form validate-form">
+              <div class="form-group">
+                <label class="form-control-label text-muted">Fullname</label>
+                <input type="text" #f="ngModel" id="text" [(ngModel)]="fullName" name="fullName" placeholder="Full name" class="form-control" required minlength="3">
+                <span class="text-danger px-3" *ngIf="f.invalid&&f.touched">mininum length is 3 char</span>
+                <br>
+                <span class="text-danger px-3" *ngIf="f.errors?.required&&f.touched">Full Name is Reqired</span>
               </div>
-  
+
+              <div class="form-group">
+                <label class="form-control-label text-muted">Email</label>
+                <input type="email" #e="ngModel" id="email" [(ngModel)]="email" name="email" placeholder="Email" class="form-control" required>
+                <span class="text-danger px-3" *ngIf="e.invalid&&e.touched">Email is Reqired</span>
+              </div>
+
+              <!-- <div class="form-group">
+                <label class="form-control-label text-muted">Username</label>
+                <input type="text" #u="ngModel" id="username"   name="username" placeholder="User name" class="form-control">
+                <span class="text-danger px-3" *ngIf="u.invalid&&u.touched">Email is Reqired</span>
+              </div> -->
+
+              <div class="form-group">
+                <label class="form-control-label text-muted">Password</label>
+                <input type="password" (keyup)="IsValidPass()" #p="ngModel" id="psw" [(ngModel)]="password" name="password" placeholder="Password" class="form-control" required>
+                <span class="text-danger px-3" *ngIf="p.invalid&&p.touched">Password is Reqired</span>
+                <span class="text-danger px-3" *ngIf=" this.validatormessage&&p.touched">{{ this.validatormessage}}</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-control-label text-muted">Confirm Password</label>
+                <input type="password" #con="ngModel" [(ngModel)]="conPassword" id="psw" name="psw" placeholder="Confirm Password" class="form-control" required>
+                <span class="text-danger px-3" *ngIf="p.value!=con.value">Password doesn't matched</span>
+                <br>
+                <span class="text-danger px-3" *ngIf="con.invalid&&con.touched"> Reqired</span>
+              </div>
+
+              <div class="row justify-content-center my-3 px-3">
+                <button class="btn-block btn-color" [disabled]="!ngForm.valid" (click)="SignUp(signUp)">Sign Up to Transengs</button>
+              </div>
               
-            </div>
-  
-            <div class="container-login100-form-btn">
-              <div class="wrap-login100-form-btn">
-                <div class="login100-form-bgbtn"></div>
-                <button class="login100-form-btn">
-                  Signup
-                </button>
-              </div>
-  
-              <a routerLink= "/login" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
-                Login
-                <i class="fa fa-long-arrow-right m-l-5"></i>
-              </a>
-            </div>
-          </form>
+            </form>
+
+
+          </div>
+        </div>
+        <div class="bottom text-center mb-5">
+          <p href="#" class="sm-text mx-auto mb-3">Already have an account?
+
+            <a routerLink="/login" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30      btn btn-white ml-2">
+              Login
+              <i class="fa fa-long-arrow-right m-l-5"></i>
+            </a>
+          </p>
+
+
+
+
+        </div>
+      </div>
+      <div class="card card2">
+        <div class="my-auto mx-md-5 px-md-5 right">
+          <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Transengs was born in
+            2021 when two Hosts welcomed three guests to their San Francisco home, and has since
+            grown to 4 million Hosts who have welcomed more than 900 million guest arrivals in almost every country
+            across the globe. Every day, Hosts offer one-of-a-kind stays and unique
+            Experiences that make it possible for guests to experience the world in a more authentic, connected
+            way.</small>
         </div>
       </div>
     </div>
-
-    </main>
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 class="mb-4 pb-0">The Greatest<br><span>Marketing</span> OutDoors</h1>
-      <p class="mb-4 pb-0">Wishlists curated by Transengs.</p>
-      <a href="#about" class="about-btn scrollto">About The Website</a>
-    </div>
-  </section><!-- End Hero Section -->
-
-  <div class="container px-4 py-5 mx-auto">
-    <div class="card card0">
-        <div class="d-flex flex-lg-row flex-column-reverse">
-            <div class="card card1">
-                <div class="row justify-content-center my-auto">
-                    <div class="col-md-8 col-10 my-5">
-                        <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="assets/img/logo.png"> </div>
-                        <h6 class="msg-info">Please sign up for new account</h6>
-                        <form  (ngSubmit)="OnFormSave($event)" #log="ngForm" class="login100-form validate-form">
-                          {{log.value |json}}
-
-                          <div class="form-group"> 
-                          <label class="form-control-label text-muted">Fullname</label>
-                          <input type="text"  #f1="ngModel" id="name" required  minlength="3" [(ngModel)]="name"    name="Name" placeholder="Full name" class="form-control">
-                          <span *ngIf="f1.errors?.required&& f1.touched">Fullname is not valied</span>
-                          <span *ngIf="f1.errors?.minlength && f1.touched">minlength less than 3</span>
-                         </div>
-                    
-                         <div class="form-group">
-                          <label class="form-control-label text-muted">Email</label>
-                           <input type="email" id="email"  required email  [(ngModel)]="email"  #f2="ngModel" name="email" placeholder="Email" class="form-control"> 
-                           <span *ngIf="f2.invalid && f2.touched">Email is not valied</span>
-                           <!-- <span *ngIf="f2.errors?.email">Email must be a valid email address</span> -->
-                         </div>
-
-                            <div class="form-group"> 
-                          <label class="form-control-label text-muted">Username</label> 
-                          <input type="email" id="username"   required  ngModel  #f3="ngModel"  name="email" placeholder="User name" class="form-control"> </div>
-                          <span *ngIf="f3.invalid && f3.touched">UserName is not valied</span>
-
-                          <div class="form-group"> 
-                          <label class="form-control-label text-muted">Password</label>
-                           <input type="password" id="psw"   required  ngModel  #f4="ngModel"  name="psw" placeholder="Password" class="form-control"> </div>
-                           <span *ngIf="f4.invalid && f4.touched">Password is not valied</span>
-
-                           <div class="form-group"> 
-                          <label class="form-control-label text-muted">Confirm Password</label> 
-                          <input type="password" id="psw"    required  ngModel  #f5="ngModel" name="psw" placeholder="Confirm Password" class="form-control"> </div>
-                          <span *ngIf="f5.invalid && f5.touched">Password is not valied</span>
-
-                          <div class="row justify-content-center my-3 px-3">
-                             <button type="submit"  class="btn-block btn-color">Sign Up to Transengs</button>
-                             </div>
-                      </form>
-                      </div>
-                </div>
-                <div class="bottom text-center mb-5">
-                    <p href="#" class="sm-text mx-auto mb-3">Already have an account?
-                    
-                      <a routerLink= "/login" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30      btn btn-white ml-2">
-                        Login
-                        <i class="fa fa-long-arrow-right m-l-5"></i>
-                      </a>
-                    </p>
-                    
-                </div>
-
-            </div>
-            <div class="card card2">
-                <div class="my-auto mx-md-5 px-md-5 right">
-                    <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Transengs was born in 2021 when two Hosts welcomed three guests to their San Francisco home, and has since 
-                      grown to 4 million Hosts who have welcomed more than 900 million guest arrivals in almost every country 
-                      across the globe. Every day, Hosts offer one-of-a-kind stays and unique 
-                      Experiences that make it possible for guests to experience the world in a more authentic, connected way.</small>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
-
