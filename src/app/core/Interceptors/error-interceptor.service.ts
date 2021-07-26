@@ -38,6 +38,9 @@ export class ErrorInterceptorService implements HttpInterceptor {
           if (error.status == 404) {
             this.router.navigateByUrl("/notfound");
           }
+          if(error){
+            this.toastr.error(error.error.message, error.error.statusCode);
+          }
         }
         return throwError(error);
       })

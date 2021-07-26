@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Hoteldetail } from '../../Models/hoteldetail';
+import { HoteldetailService } from '../../services/hoteldetail.service';
 
 @Component({
   selector: 'app-rooms',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomsComponent implements OnInit {
 
-  constructor() { }
+  hotelDetail = new Hoteldetail();
+    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ) {
 
-  ngOnInit(): void {
+   }
+
+   ngOnInit(): void {
+    this.ar.params.subscribe(a=> {
+      this.hoteldetailser.GetPropertyDetail(a['id']).subscribe(
+        d=> this.hotelDetail=d
+      )
+    })
   }
+
 
 }

@@ -15,6 +15,7 @@ import {RegisterModule} from './register/register.module'
 import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
 
+import { AgmCoreModule } from '@agm/core';
 //import {SharedModule} from './shared/shared/shared.module'
 
 
@@ -39,7 +40,11 @@ import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.s
     RegisterModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
     ExploreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCgoOr6OO93EA_lObLJzxlaW0-4MwKiPl0'
+    })
 
   ],
   providers: [

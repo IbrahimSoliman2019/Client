@@ -1,0 +1,547 @@
+<app-main-section></app-main-section>
+
+
+<main>
+
+<nav id="menu" class="main-menu"></nav>
+
+<div class="filters_listing sticky_horizontal">
+<div class="container">
+  <ul class="clearfix">
+    <li>
+      <div class="switch-field">
+        <input type="radio" id="all" name="listing_filter" value="all" checked data-filter="*" class="selected">
+        <label for="all">All</label>
+        <input type="radio" id="popular" name="listing_filter" value="popular" data-filter=".popular">
+        <label for="popular">Popular</label>
+        <input type="radio" id="latest" name="listing_filter" value="latest" data-filter=".latest">
+        <label for="latest">Latest</label>
+      </div>
+    </li>
+    <li>
+      <div class="layout_view">
+        <a href="#0" class="active"><i class="icon-th"></i></a>
+        <a href="hotels-list-sidebar.html"><i class="icon-th-list"></i></a>
+      </div>
+    </li>
+    <li>
+      <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
+    </li>
+  </ul>
+</div>
+<!-- /container -->
+</div>
+<!-- /filters -->
+
+<div class="collapse" id="collapseMap">
+<div id="map" class="map"></div>
+</div>
+<!-- End Map -->
+
+<div class="container margin_60_35">
+
+<div class="row">
+
+  <aside class="col-lg-3">
+
+
+
+        <div class="custom-search-input-2 inner-2">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Terms...">
+            <i class="icon_search"></i>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Where">
+            <i class="icon_pin_alt"></i>
+          </div>
+          <div class="form-group">
+          <select class="wide">
+            <option>District</option>
+            <option>All</option>
+            <option>Alexandria</option>
+            <option>Berlin</option>
+            <option>London</option>
+          </select>
+          </div>
+          <input type="submit" class="btn_search" value="Search">
+        </div>
+
+    <!-- Section: Condition -->
+    <section filter="condition" class="mb-4">
+              <h6 class="font-weight-bold mb-3">Condition</h6>
+
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="filter-option form-check-input filled-in"
+                  condition="new"
+                  id="new"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="new"
+                  >Apartment</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  condition="used"
+                  type="checkbox"
+                  class="filter-option form-check-input filled-in"
+                  id="used"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="used"
+                  >Hotel</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  condition="collectible"
+                  type="checkbox"
+                  class="filter-option form-check-input filled-in"
+                  id="collectible"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="collectible"
+                  >Restaurant</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3 pb-1">
+                <input
+                  condition="renewed"
+                  type="checkbox"
+                  class="filter-option form-check-input filled-in"
+                  id="renewed"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="renewed"
+                  >Room</label
+                >
+              </div>
+            </section>
+      <!-- Section: Condition -->
+
+
+
+      <!-- Section: Place Type -->
+    <section filter="condition" class="mb-4">
+      <h6 class="font-weight-bold mb-3">Type of Place</h6>
+
+      <div class="form-check pl-0 mb-3">
+        <input
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          condition="newtype"
+          id="newtype"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="newtype"
+          >Entire Place</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3">
+        <input
+          condition="usedtype"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="usedtype"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="usedtype"
+          >Private Room</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3">
+        <input
+          condition="collectibletype"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="collectibletype"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="collectibletype"
+          >Hotel Room</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3 pb-1">
+        <input
+          condition="renewedtype"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="renewedtype"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="renewedtype"
+          >Shared Room</label
+        >
+      </div>
+    </section>
+<!-- Section: Place Type -->
+
+
+
+            <!-- Section: Price -->
+            <section class="mb-4" filter="price">
+              <h6 class="font-weight-bold mb-3">Price</h6>
+
+              <div class="form-check pl-0 mb-3">
+                <input
+                  price="0-25"
+                  type="radio"
+                  class="filter-option form-check-input"
+                  id="under25"
+                  name="materialExampleRadios"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="under25"
+                  >Under $25</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  price="25-50"
+                  type="radio"
+                  class="filter-option form-check-input"
+                  id="2550"
+                  name="materialExampleRadios"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="2550"
+                  >$25 to $50</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  price="50-100"
+                  type="radio"
+                  class="filter-option form-check-input"
+                  id="50100"
+                  name="materialExampleRadios"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="50100"
+                  >$50 to $100</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  price="100-200"
+                  type="radio"
+                  class="filter-option form-check-input"
+                  id="100200"
+                  name="materialExampleRadios"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="100200"
+                  >$100 to $200</label
+                >
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  price="200-*"
+                  type="radio"
+                  class="filter-option form-check-input"
+                  id="200above"
+                  name="materialExampleRadios"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="200above"
+                  >$200 & Above</label
+                >
+              </div>
+            </section>
+            <!-- Section: Price -->
+
+              <!-- Section: Property -->
+    <section filter="condition" class="mb-4">
+      <h6 class="font-weight-bold mb-3">Property Type</h6>
+
+      <div class="form-check pl-0 mb-3">
+        <input
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          condition="newproperty"
+          id="newproperty"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="newproperty"
+          >Single</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3">
+        <input
+          condition="usedproperty"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="usedproperty"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="usedproperty"
+          >Double</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3">
+        <input
+          condition="alreadycollectible"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="collectibleproperty"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="collectibleproperty"
+          >Triple</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3 pb-1">
+        <input
+          condition="renewedproperty"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="renewedproperty"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="renewedproperty"
+          >Quad</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3 pb-1">
+        <input
+          condition="detectedproperty"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="detectedproperty"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="detectedproperty"
+          >Queen</label
+        >
+      </div>
+      <div class="form-check pl-0 mb-3 pb-1">
+        <input
+          condition="remadeproperty"
+          type="checkbox"
+          class="filter-option form-check-input filled-in"
+          id="remadeproperty"
+        />
+        <label
+          class="form-check-label small text-uppercase card-link-secondary"
+          for="remadeproperty"
+          >King</label
+        >
+      </div>
+    </section>
+<!-- Section: Property -->
+
+<!-- Section: Guests -->
+<section class="mb-4" filter="price">
+<h6 class="font-weight-bold mb-3">Guests</h6>
+
+<div class="form-check pl-0 mb-3">
+  <input
+    price="1 Guest"
+    type="radio"
+    class="filter-option form-check-input"
+    id="1 Guest"
+    name="materialExampleRadios"
+  />
+  <label
+    class="form-check-label small text-uppercase card-link-secondary"
+    for="1 Guest"
+    >1 Guest</label
+  >
+</div>
+<div class="form-check pl-0 mb-3">
+  <input
+    price="2 Guests"
+    type="radio"
+    class="filter-option form-check-input"
+    id="2 Guests"
+    name="materialExampleRadios"
+  />
+  <label
+    class="form-check-label small text-uppercase card-link-secondary"
+    for="2 Guests"
+    >2 Guests</label
+  >
+</div>
+<div class="form-check pl-0 mb-3">
+  <input
+    price="3 Guests"
+    type="radio"
+    class="filter-option form-check-input"
+    id="3 Guests"
+    name="materialExampleRadios"
+  />
+  <label
+    class="form-check-label small text-uppercase card-link-secondary"
+    for="3 Guests"
+    >3 Guests</label
+  >
+</div>
+<div class="form-check pl-0 mb-3">
+  <input
+    price="4 Guests"
+    type="radio"
+    class="filter-option form-check-input"
+    id="4 Guests"
+    name="materialExampleRadios"
+  />
+  <label
+    class="form-check-label small text-uppercase card-link-secondary"
+    for="4 Guests"
+    >4 Guests</label
+  >
+</div>
+<div class="form-check pl-0 mb-3">
+  <input
+    price="5 Guests"
+    type="radio"
+    class="filter-option form-check-input"
+    id="5 Guests"
+    name="materialExampleRadios"
+  />
+  <label
+    class="form-check-label small text-uppercase card-link-secondary"
+    for="5 Guests"
+    >5 Guests</label
+  >
+</div>
+<div class="form-check pl-0 mb-3">
+  <input
+    price="6 Guests"
+    type="radio"
+    class="filter-option form-check-input"
+    id="6 Guests"
+    name="materialExampleRadios"
+  />
+  <label
+    class="form-check-label small text-uppercase card-link-secondary"
+    for="6 Guests"
+    >6 Guests</label
+  >
+</div>
+</section>
+<!-- Section: Guests -->
+
+  </aside>
+  <!-- /aside -->
+
+<div class="col-lg-9" >
+
+  <div class="wrapper-grid" >
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let item of properties">
+        <div class="box_grid">
+          <figure>
+            <a href="#0" class="wish_bt liked"></a>
+            <a href="tour-detail.html"><img src="assets/img/cities/bridge_architecture_gothic.jpg" class="img-fluid" alt="" width="800" height="533"></a>
+
+            <div class="read_more"><span>Read more</span></div>
+          </figure>
+          <div class="wrapper">
+            <h3><a href="tour-detail.html">{{item.name}}</a></h3>
+            <p>{{item.description}}</p>
+            <span class="price">From <strong>${{item.price}}</strong> /per person</span>
+          </div>
+          <ul>
+            <li><i class="icon_clock_alt"></i> 1h 30min</li>
+            <li><div class="score"><span>Superb<em>{{item.property_reviews.length}} Reviews</em></span><strong>8.9</strong></div></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /box_grid -->
+
+      <!-- /box_grid -->
+    </div>
+    <!-- /row -->
+    </div>
+    <!-- /isotope-wrapper -->
+    <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
+
+  </div>
+  <!-- /container -->
+</div>
+</div>
+<!-- /container -->
+
+  <div class="bg_color_1">
+    <div class="container margin_60_35">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#0" class="boxed_list">
+            <i class="pe-7s-help2"></i>
+            <h4>Need Help? Contact us</h4>
+            <p>Cum appareat maiestatis interpretaris et, et sit.</p>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#0" class="boxed_list">
+            <i class="pe-7s-wallet"></i>
+            <h4>Payments</h4>
+            <p>Qui ea nemore eruditi, magna prima possit eu mei.</p>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#0" class="boxed_list">
+            <i class="pe-7s-note2"></i>
+            <h4>Cancel Policy</h4>
+            <p>Hinc vituperata sed ut, pro laudem nonumes ex.</p>
+          </a>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /bg_color_1 -->
+
+<!-- </main> -->
+<!--/main-->
+
+
+<script>
+	$(window).load(function(){
+	  var $container = $('.isotope-wrapper');
+	  $container.isotope({ itemSelector: '.isotope-item', layoutMode: 'masonry' });
+	});
+
+	$('.filters_listing').on( 'click', 'input', 'change', function(){
+	  var selector = $(this).attr('data-filter');
+	  $('.isotope-wrapper').isotope({ filter: selector });
+	});
+	</script>
+
+	<!-- Range Slider -->
+	<script>
+		 $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 30,
+            max: 180,
+            from: 60,
+            to: 130,
+            type: 'double',
+            step: 1,
+            prefix: "Km ",
+            grid: false
+        });
+	</script>
