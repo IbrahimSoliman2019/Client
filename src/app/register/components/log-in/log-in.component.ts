@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../Model/user';
 import {UsersService } from '../../Services/users.service' ;
@@ -45,7 +46,22 @@ export class LogInComponent implements OnInit {
 
 
 
-  constructor(public UserSer:UsersService,public route:Router) { }
+  constructor(public UserSer:UsersService,public route:Router ) { }
+onLogin(loginForm:NgForm)
+{
+  
+  const token=this.UserSer.LoginUser(loginForm.value);
+  if(token)
+  {
+    localStorage.setItem('token',token.email);
+    console.log("log in succees") ;
+  }
+  else{
+    console.log("LOg in not succees") ;
+  }
+
+}
+
 
   ngOnInit(): void {
   }

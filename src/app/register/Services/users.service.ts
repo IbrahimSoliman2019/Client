@@ -50,18 +50,25 @@ export class UsersService
 
 
 
-  registerUser (user:User)
+registerUser (user:User)
 {
   const body :User=
   {
     name :user.name,
     email:user.email,
     password:user.password
-
   }
   return  this.http.post<User>(`${this.BaseUrl}/Account/register`,body);
 
 }
 
+LoginUser(user :any)
+{
+let userArray=[] ;
+if(localStorage.getItem('Users')) {
+  userArray=JSON.parse(localStorage.getItem('Users'));
+}
+return userArray.find(p=>p.email===user.email &&p.password===user.password)
+}
 
 }
