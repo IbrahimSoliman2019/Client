@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { User } from '../../Model/user';
 import {UsersService } from '../../Services/users.service' ;
 
@@ -14,38 +15,28 @@ export class LogInComponent implements OnInit {
   checkUser=new User ('','','');
   check:any;
   error:any;
-
+  newUser:User;
   
 
-  Login(login:ElementRef)
+  Login(login:any)
   {
-    console.log(login.nativeElement);
-    /* this.email=login.value.email;
+    console.log(login);
+    this.email=login.value.email;
     this.password=login.value.password;
-    this.checkUser=new User ('',this.email,this.password);
+    this.newUser = new User("", this.email, this.password);
 
-  this.UserSer.GetUser(this.checkUser).subscribe(response=>{
-    this.checkUser=response
-  },error=>{
-    this.error=error
-  }
-  );
-  console.log(login);
+    this.UserSer.LoginUser(this.newUser).subscribe(a=>{
+      alert("Welcome");
+      localStorage.setItem("token",a.token);   
+      // this.route.navigateByUrl("");
+    })
 
-    if (!this.error)
-    {
-      this.route.navigateByUrl("");
-    }
-    else
-    {
-      alert("Please sure that email and password is correct")
-    } */
   }
 
 
 
 
-  constructor(public UserSer:UsersService,public route:Router) { }
+  constructor(public UserSer:UsersService,public route:Router,private auth:AuthGuardService) {}
 
   ngOnInit(): void {
   }

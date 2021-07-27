@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { LocationService } from 'src/app/shared/services/location.service';
 
 @Component({
@@ -15,7 +16,10 @@ export class HomeComponent implements OnInit {
   latitude: number;
   CountryName:any;
 
-  constructor(private locationservice: LocationService,private http :HttpClient) {}
+  constructor(private locationservice: LocationService,private http :HttpClient)
+   {
+
+   }
 
   ngOnInit(): void {
     if (navigator.geolocation) {

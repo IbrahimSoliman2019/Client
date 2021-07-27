@@ -14,6 +14,7 @@ import {HomeModule} from './home/home.module';
 import {RegisterModule} from './register/register.module'
 import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
+import { ToastrModule } from 'ngx-toastr';
 //import {SharedModule} from './shared/shared/shared.module'
 
 
@@ -36,7 +37,9 @@ import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.s
     RegisterModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
+
 
   
   ],
