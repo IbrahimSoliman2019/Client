@@ -15,6 +15,8 @@ import {RegisterModule} from './register/register.module'
 import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
 import {ToastrModule} from 'ngx-toastr'
+
+import { AgmCoreModule } from '@agm/core';
 //import {SharedModule} from './shared/shared/shared.module'
 
 
@@ -22,7 +24,9 @@ import {ToastrModule} from 'ngx-toastr'
 @NgModule({
   declarations: [
     AppComponent,
-    
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -38,10 +42,15 @@ import {ToastrModule} from 'ngx-toastr'
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ExploreModule,
+    ToastrModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCgoOr6OO93EA_lObLJzxlaW0-4MwKiPl0'
+    })
 
-  
   ],
+
+
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptorService,multi:true}
 

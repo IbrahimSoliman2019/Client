@@ -6,7 +6,12 @@
           <h2>Explore Nearby</h2>
           <p>Here are some of our explore</p>
         </div>
-
+<table>
+  <tr *ngFor="let item of state">
+    <td>{{item.id}} </td>
+    <td> {{item.name}}</td>
+  </tr>
+</table>
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="explore" data-aos="fade-up" [routerLink]="['/exp']" data-aos-delay="100">
