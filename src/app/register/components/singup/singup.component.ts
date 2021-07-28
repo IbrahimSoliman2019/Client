@@ -22,6 +22,10 @@ export class SingupComponent implements OnInit {
 
 
 
+user :User;
+
+
+
   SignUp(sign: any) {
     this.fullName = sign.value.fullName;
     this.email = sign.value.email;
@@ -35,42 +39,11 @@ export class SingupComponent implements OnInit {
      
    })
 
-    // if (check == null) {
-    //   alert("this email is used");
-    // }
-    // else {
-    //   // alert("done");
-    //   // this.route.navigateByUrl("/login");
-
-    //   this.UsSer.registerUser(sign.value).subscribe(a => {
-    //     console.log(a);
-    //     this.route.navigateByUrl("/login");
-    //   })
-    // }
-
-
   }
 
-  // this.UsSer.registerUser(sign.value).subscribe(a=>{
-  //   console.log(a);
-  //         this.route.navigateByUrl("/login");
 
-  // constructor(public UsSer:UsersService,public route:Router ,public toastr :ToastrService ) { }
   ngOnInit(): void {
-    // this.restForm();
   }
-  // user: User;
-  // restForm(form?: NgForm) {
-  //   if (form != null)
-  //     form.reset();
-  //   this.user = {
-  //     DisplayName: '',
-  //     Email: '',
-  //     Password: ''
-  //   }
-  // }
-
-
 
 
     IsValidPass(){

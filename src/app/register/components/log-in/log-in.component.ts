@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { User } from '../../Model/user';
@@ -28,7 +29,7 @@ export class LogInComponent implements OnInit {
     this.UserSer.LoginUser(this.newUser).subscribe(a=>{
       alert("Welcome");
       localStorage.setItem("token",a.token);   
-      // this.route.navigateByUrl("");
+      this.route.navigateByUrl("");
     })
 
   }
