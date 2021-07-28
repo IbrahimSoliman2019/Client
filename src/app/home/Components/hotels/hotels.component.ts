@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProperityType } from '../../properity-type';
+import { ProperityTypeService } from '../Services/properity-type.service';
 
 @Component({
   selector: 'app-hotels',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelsComponent implements OnInit {
 
-  constructor() { }
+  properityType:ProperityType[]=[];
+
+  constructor(public PropSer: ProperityTypeService,private router:Router) { }
+
+
+
 
   ngOnInit(): void {
+    this.PropSer.GetPropType().subscribe(a=>{
+      this.properityType=a;
+    })
   }
 
 }
