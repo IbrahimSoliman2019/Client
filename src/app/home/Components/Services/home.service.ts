@@ -13,5 +13,9 @@ export class HomeService {
   GetAllState(){
   return  this.http.get<State[]>(`${this.BaseUrl}/State` );
   }
+  GetState(id:number){
+    return  this.http.get<State[]>(`${this.BaseUrl}/State`+"/" +id);
+    }
+
 
 }
