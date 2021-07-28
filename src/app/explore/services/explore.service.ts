@@ -16,9 +16,10 @@ export class ExploreService {
     params = params.append('stateid', id.toString());//http //ibrahim hi map(res=>{
 
    //return'hi'+name }) //rxjs
-   return  this.http.get<IProperty[]>(`${this.BaseUrl}/property`, { observe: 'response', params })
-      .pipe(map(res => {
-        return res.body
-      }));
+   return  this.http.get<IProperty[]>(`${this.BaseUrl}/property`);
   }
 }
+// , { observe: 'response', params })
+//       .pipe(map(res => {
+//         return res.body
+//       })

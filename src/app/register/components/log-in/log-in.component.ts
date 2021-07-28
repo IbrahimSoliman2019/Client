@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { User } from '../../Model/user';
 import {UsersService } from '../../Services/users.service' ;
 
@@ -15,53 +16,28 @@ export class LogInComponent implements OnInit {
   checkUser=new User ('','','');
   check:any;
   error:any;
-
+  newUser:User;
   
 
-  Login(login:ElementRef)
+  Login(login:any)
   {
-    console.log(login.nativeElement);
-    /* this.email=login.value.email;
+    console.log(login);
+    this.email=login.value.email;
     this.password=login.value.password;
-    this.checkUser=new User ('',this.email,this.password);
+    this.newUser = new User("", this.email, this.password);
 
-  this.UserSer.GetUser(this.checkUser).subscribe(response=>{
-    this.checkUser=response
-  },error=>{
-    this.error=error
-  }
-  );
-  console.log(login);
-
-    if (!this.error)
-    {
+    this.UserSer.LoginUser(this.newUser).subscribe(a=>{
+      alert("Welcome");
+      localStorage.setItem("token",a.token);   
       this.route.navigateByUrl("");
-    }
-    else
-    {
-      alert("Please sure that email and password is correct")
-    } */
+    })
+
   }
 
 
 
 
-  constructor(public UserSer:UsersService,public route:Router ) { }
-onLogin(loginForm:NgForm)
-{
-  
-  const token=this.UserSer.LoginUser(loginForm.value);
-  if(token)
-  {
-    localStorage.setItem('token',token.email);
-    console.log("log in succees") ;
-  }
-  else{
-    console.log("LOg in not succees") ;
-  }
-
-}
-
+  constructor(public UserSer:UsersService,public route:Router,private auth:AuthGuardService) {}
 
   ngOnInit(): void {
   }

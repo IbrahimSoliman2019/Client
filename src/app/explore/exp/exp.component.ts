@@ -10,16 +10,22 @@ import { ExploreService } from '../services/explore.service';
 })
 export class ExpComponent implements OnInit {
   stateid: number;
-  properties: IProperty[];
+  properties: IProperty[]=[];
 
-  constructor(private route: ActivatedRoute, private expservice: ExploreService) { }
+  constructor(private route: ActivatedRoute, private expservice: ExploreService) 
+  { 
+   
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.stateid = params['id']
+                alert(this.stateid)
+
       if (this.stateid) {
         this.expservice.GetProperties(this.stateid).subscribe(res => {
           this.properties = res;
+
         });
       }
     })

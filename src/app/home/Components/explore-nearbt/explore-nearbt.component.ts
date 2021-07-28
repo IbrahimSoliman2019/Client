@@ -1,4 +1,7 @@
+import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocationService } from 'src/app/shared/services/location.service';
 import { HomeService } from '../Services/home.service';
 import { State } from '../state';
 
@@ -8,14 +11,27 @@ import { State } from '../state';
   styleUrls: ['./explore-nearbt.component.scss']
 })
 export class ExploreNearbtComponent implements OnInit {
-state:State[]=[];
-  constructor(public staSer :HomeService) { }
+  state: State[] = [];
+  title:string;
+
+
+
+
+
+
+  
+  constructor(public staSer: HomeService,private map:LocationService,private router:Router) { }
 
   ngOnInit(): void {
-    this.staSer.GetAllState().subscribe(a=>
-      {
-    this.state=a ;
-      });
+    this.map.getUserLocation().subscribe(data => {
+
+      console.log(data);
+      this.title = data.country_name;
+    });
+
+    this.staSer.GetAllState(this.title).subscribe(a => {
+      this.state = a;
+    });
   }
 
 }

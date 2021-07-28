@@ -1,74 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {User} from '../Model/user';
+import { User } from '../Model/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService
- {
-  private Users: User[ ] =
-  [
-    new User('Admin', 'admin@gmail.com', 'admin123'),
-    new User('Ahmen', 'ahmed@gmail.com', 'ahmed123'),
-    new User('Ail', 'ail@gmail.com', 'ail123'),
-    new User('Kareem', 'kareem@gmail.com', 'kareem123'),
-    new User('Ramy', 'ramy@gmail.com', 'ramy123'),
-  ];
+export class UsersService {
 
+  private Users: User[];
   BaseUrl = environment.ApiUrl;
 
-  constructor(private http:HttpClient){}
 
-  
+  AddNewUser(user: User) {
+    return this.http.post<User>(`${this.BaseUrl}/Account/register`, user);
 
-//   GetUser(user:User)
-//   {
-//     const body :User={
-//     name:user.name ,
-//     email:user.email,
-//     password:user.password,
+  }
 
-//   }
-//  return  this.http.post<User>(`${this.BaseUrl}/Account/register`,user);
-   
-//   }
-
-  AddUser(user:User)
+  LoginUser(user:User)
   {
-    for (let i = 0; i < this.Users.length; i++) 
-    {
-      if (this.Users[i].email==user.email) 
-      {
-        return null
-      }
-    }
-    return this.Users.push(user);
+    return this.http.post<User>(`${this.BaseUrl}/Account/login`, user);
   }
 
 
+  constructor(private http: HttpClient) { }
 
-
-registerUser (user:User)
-{
-  const body :User=
-  {
-    name :user.name,
-    email:user.email,
-    password:user.password
-  }
-  return  this.http.post<User>(`${this.BaseUrl}/Account/register`,body);
-
-}
-
-LoginUser(user :any)
-{
-let userArray=[] ;
-if(localStorage.getItem('Users')) {
-  userArray=JSON.parse(localStorage.getItem('Users'));
-}
-return userArray.find(p=>p.email===user.email &&p.password===user.password)
-}
 
 }

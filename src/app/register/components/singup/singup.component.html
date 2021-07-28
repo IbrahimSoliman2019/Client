@@ -55,7 +55,7 @@
               </div>
 
               <div class="row justify-content-center my-3 px-3">
-                <button class="btn-block btn-color" (click)="SignUp(signUp)">Sign Up to Transengs</button>
+                <button class="btn-block btn-color" [disabled]="!signUp.valid" (click)="SignUp(signUp)">Sign Up to Transengs</button>
               </div>
               
             </form>

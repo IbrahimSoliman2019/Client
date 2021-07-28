@@ -15,7 +15,6 @@ import {RegisterModule} from './register/register.module'
 import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
 import {ToastrModule} from 'ngx-toastr'
-
 import { AgmCoreModule } from '@agm/core';
 //import {SharedModule} from './shared/shared/shared.module'
 
@@ -42,6 +41,7 @@ import { AgmCoreModule } from '@agm/core';
     RouterModule,
     FormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     ExploreModule,
     ToastrModule.forRoot(),
     AgmCoreModule.forRoot({
