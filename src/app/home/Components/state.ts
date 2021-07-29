@@ -1,3 +1,3 @@
 export class State {
-    constructor(public id:number ,public country_id:number ,public name:string ,public code:number ,public pictureUrl:string){}
+    constructor(public id:number ,public country_id:number ,public name:string ,public code:number ){}
 }

@@ -29,7 +29,7 @@ export class LogInComponent implements OnInit {
     this.UserSer.LoginUser(this.newUser).subscribe(a=>{
       alert("Welcome");
       localStorage.setItem("token",a.token);   
-      this.route.navigateByUrl("home");
+      this.route.navigateByUrl("/home");
     })
 
   }

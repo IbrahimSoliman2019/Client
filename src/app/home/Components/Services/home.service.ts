@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { State } from '../state';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,8 @@ export class HomeService {
     let params = new HttpParams();
     if(country!=null)
     params = params.append('Country', country);
+  //  return this.http.get<State[]>(`${this.BaseUrl}/State`);
+
     return this.http.get<State[]>(`${this.BaseUrl}/State`,{observe:'response',params})
     .pipe(map(res=>{
       return res.body;
@@ -23,6 +26,10 @@ export class HomeService {
   GetState(){
     return  this.http.get<State[]>(`${this.BaseUrl}/State`);
     }
+
+
+
+
 
 }
 
