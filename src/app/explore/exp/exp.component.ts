@@ -14,18 +14,16 @@ export class ExpComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private expservice: ExploreService) 
   { 
-   
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.stateid = params['id']
-                alert(this.stateid)
+                alert(this.stateid) ;
 
       if (this.stateid) {
         this.expservice.GetProperties(this.stateid).subscribe(res => {
           this.properties = res;
-
         });
       }
     })

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Hoteldetail } from '../Models/hoteldetail';
+import { Property } from '../property';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class HoteldetailService {
 
   GetAllPropertyDetail() {
 
-    return this.http.get<Hoteldetail[]>(this.baseUrl);
+    return this.http.get<Hoteldetail[]>(this.baseUrl+"/"+Property);
 
   }
 

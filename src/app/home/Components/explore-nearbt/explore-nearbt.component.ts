@@ -13,13 +13,6 @@ import { State } from '../state';
 export class ExploreNearbtComponent implements OnInit {
   state: State[] = [];
   title:string;
-
-
-
-
-
-
-  
   constructor(public staSer: HomeService,private map:LocationService,private router:Router) { }
 
   ngOnInit(): void {
@@ -28,7 +21,6 @@ export class ExploreNearbtComponent implements OnInit {
       console.log(data);
       this.title = data.country_name;
     });
-
     this.staSer.GetAllState(this.title).subscribe(a => {
       this.state = a;
     });

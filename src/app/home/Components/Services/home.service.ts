@@ -13,14 +13,16 @@ export class HomeService {
   constructor(public http: HttpClient) { }
   GetAllState(country: string) {
     let params = new HttpParams();
+    if(country!=null)
     params = params.append('Country', country);
-    return this.http.get<State[]>(`${this.BaseUrl}/State`);
+    return this.http.get<State[]>(`${this.BaseUrl}/State`,{observe:'response',params})
+    .pipe(map(res=>{
+      return res.body;
+    }));
   }
-  GetState(id:number){
-    return  this.http.get<State[]>(`${this.BaseUrl}/State`+"/" +id);
+  GetState(){
+    return  this.http.get<State[]>(`${this.BaseUrl}/State`);
     }
-
-
 
 }
 
