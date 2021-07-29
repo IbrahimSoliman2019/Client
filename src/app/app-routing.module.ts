@@ -14,7 +14,12 @@ const routes: Routes = [
   {path:"login",component:LogInComponent},
   {path:"signup",component:SingupComponent},
   {path:"hoteldetails",component:HotelDetailComponent},
-  {path:"exp",component:ExpComponent},
+  {path:"exp",component:ExpComponent, children:
+  [
+    {path:"hoteldetails",component:HotelDetailComponent}
+  ]
+
+},
   {path:"location",component:LocationComponent}
 
 ];

@@ -10,7 +10,9 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { ExpComponent } from './exp/exp.component';
 import { AgmCoreModule } from '@agm/core';
 import { ExsearchComponent } from './exp/expsearch/exsearch/exsearch.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/calendar';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -22,11 +24,15 @@ import { ExsearchComponent } from './exp/expsearch/exsearch/exsearch.component';
     MainSectionComponent,
     ExpComponent,
     ExsearchComponent,
+
   ],
   imports: [
     CommonModule,
     ExploreRoutingModule,
-    AgmCoreModule
+    AgmCoreModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    SharedModule
   ],
 
 
