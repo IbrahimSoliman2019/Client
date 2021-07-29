@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-galary',
   templateUrl: './galary.component.html',
@@ -10,6 +11,7 @@ export class GalaryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  
   }
 
 }

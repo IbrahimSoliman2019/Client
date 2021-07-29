@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { IProperty } from 'src/app/shared/Models/IProperty';
 import { environment } from 'src/environments/environment';
 import { State } from '../state';
 
@@ -23,9 +24,9 @@ export class HomeService {
       return res.body;
     }));
   }
-  GetState(){
-    return  this.http.get<State[]>(`${this.BaseUrl}/State`);
-    }
+  Getproperty(){
+    return  this.http.get<IProperty[]>(`${this.BaseUrl}/property`);
+  }
 
 
 

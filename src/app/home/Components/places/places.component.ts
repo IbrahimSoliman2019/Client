@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IProperty } from 'src/app/shared/Models/IProperty';
+import { HomeService } from '../Services/home.service';
 
 declare const L:any;
 @Component({
@@ -12,10 +15,20 @@ declare const L:any;
 
 export class PlacesComponent implements OnInit {
 
+
+  prop :IProperty[]=[];
+
   title = 'Client';
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient ,public GlaSer :HomeService , public router :Router){}
 
   ngOnInit(): void {
+
+    this.GlaSer.Getproperty().subscribe(res=>{
+      this.prop=res["data"];
+    });
+
+
+
     if (!navigator.geolocation) {
       console.log("location is not supported");
 
@@ -62,5 +75,8 @@ export class PlacesComponent implements OnInit {
       maximumAge:0
     }
     );
+
+  
+   
   }
 }

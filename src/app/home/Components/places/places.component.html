@@ -8,12 +8,12 @@
       </div>
 
       <div class="row g-0">
-        <div class="col-lg-6 places-map">
-          <div id="map" ></div>
+        <div class="col-lg-12 places-map">
+          <div id="map"  ></div>
           <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13652.05386105063!2d29.9060892!3d31.19264!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x16cbff5d844ff34b!2z2YXYudmH2K8g2KrZg9mG2YjZhNmI2KzZitinINin2YTZhdi52YTZiNmF2KfYqiAtIElUSQ!5e0!3m2!1sar!2seg!4v1624666613285!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>           -->
         </div>
 
-        <div class="col-lg-6 place-info">
+        <!-- <div class="col-lg-6 place-info">
           <div class="row justify-content-center">
             <div class="col-11 col-lg-8 position-relative">
               <h3>Information Technology Institute, Alexandria</h3>
@@ -23,14 +23,12 @@
                 academia, and the community.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
-
-    <div class="container-fluid places-gallery-container" data-aos="fade-up" data-aos-delay="100">
+    <!-- <div class="container-fluid places-gallery-container" data-aos="fade-up" data-aos-delay="100">
       <div class="row g-0">
-
         <div class="col-lg-3 col-md-4">
           <div class="place-gallery">
             <a href="assets/img/cities/germany_area_building_home_church_flowers_hdr.jpg" class="glightbox" data-gall="places-gallery">
@@ -61,8 +59,8 @@
               <img src="assets/img/cities/limburg_germany_castle_trees_houses.jpg" alt="" class="img-fluid">
             </a>
           </div>
-        </div>
-
+        </div> -->
+<!-- 
         <div class="col-lg-3 col-md-4">
           <div class="places-gallery">
             <a href="assets/img/cities/mountains_night_building_sky.jpg" class="glightbox" data-gall="places-gallery">
@@ -93,9 +91,45 @@
               <img src="assets/img/cities/night_city_architecture_bridge.jpg" alt="" class="img-fluid">
             </a>
           </div>
-        </div>
+        </div>  -->
 
+      <!-- </div>
+    </div> 
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="col-lg-12">
+      <div class="wrapper-grid">
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-md-6" *ngFor="let item of prop">
+            <div class="box_grid">
+              <figure>
+                <a href="#0" class="wish_bt liked"></a>
+                <a href="tour-detail.html"><img src="assets/img/cities/bridge_architecture_gothic.jpg"
+                    class="img-fluid" alt="" width="800" height="533"></a>
+                <!-- <div class="read_more"><span>Read more</span></div> -->
+              </figure>
+              <div class="wrapper">
+                <h3><a href="tour-detail.html">{{item.name}}</a></h3>
+                <!-- <p>{{item.description}}</p> -->
+                <span class="price">From <strong>${{item.price}}</strong> /per person</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
   </section>
+
+
