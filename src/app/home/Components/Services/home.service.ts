@@ -24,8 +24,9 @@ export class HomeService {
       return res.body;
     }));
   }
+  
   Getproperty(){
-    return  this.http.get<IProperty[]>(`${this.BaseUrl}/property`);
+    return  this.http.get(`${this.BaseUrl}/property/Random`);
   }
 
 

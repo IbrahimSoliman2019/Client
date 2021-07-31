@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { PropertyDetilesRoot } from 'src/app/shared/Models/PropertyDetilesRoot';
 import { HoteldetailService } from '../services/hoteldetail.service';
 
 @Component({
@@ -9,16 +10,22 @@ import { HoteldetailService } from '../services/hoteldetail.service';
 })
 export class HotelDetailComponent implements OnInit {
 
-  id:number;
-  constructor(private route:ActivatedRoute, private propertyservice:HoteldetailService) {
+  id: number;
+  propertydetailroot: PropertyDetilesRoot;
+  constructor(private route: ActivatedRoute, private propertyservice: HoteldetailService) {
 
-   }
+  }
 
   ngOnInit(): void {
 
-  //   this.propertyservice = this.route.params.subscribe(params => {
-  //     const id = params['id']
-  //   })
-   }
+    this.route.params.subscribe((params: Params) => {
+      this.propertyservice.GetPropertyDetail(params['id']).subscribe(
+        res => {
+          this.propertydetailroot = res;
+          console.log(res);
+        }
+      )
+    })
+  }
 
 }

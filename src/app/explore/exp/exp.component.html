@@ -241,17 +241,20 @@
         <div class="wrapper-grid">
           <div class="row">
             <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let item of properties">
-              <div class="box_grid">
+              <div class="box_grid" [routerLink]="['/details',item.id]">
                 <figure>
                   <a href="#0" class="wish_bt liked"></a>
-                  <a href="tour-detail.html"><img src="assets/img/cities/bridge_architecture_gothic.jpg"
+                  <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
                       class="img-fluid" alt="" width="800" height="533"></a>
+                      
+                       <!-- <a ><img src="{{item.property_images}}"
+                        class="img-fluid" alt="" width="800" height="533"></a>  -->
 
                   <div class="read_more"><span>Read more</span></div>
                 </figure>
                 <div class="wrapper">
                   <h3><a href="tour-detail.html">{{item.name}}</a></h3>
-                  <p>{{item.description}}</p>
+                  <p>{{item.cities}}</p>
                   <span class="price">From <strong>${{item.price}}</strong> /per person</span>
                 </div>
                 <ul>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HotelsComponent } from 'src/app/home/Components/hotels/hotels.component';
+import { IProperty } from 'src/app/shared/Models/IProperty';
 import { Hoteldetail } from '../../Models/hoteldetail';
 import { HoteldetailService } from '../../services/hoteldetail.service';
 
@@ -10,17 +11,15 @@ import { HoteldetailService } from '../../services/hoteldetail.service';
   styleUrls: ['./description.component.scss']
 })
 export class DescriptionComponent implements OnInit {
-  hotelDetail = new Hoteldetail();
-    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ) {
+  // hotelDetail = new Hoteldetail();
+  @Input() hotelDetail :IProperty;
+
+  prop:IProperty ;
+    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService  ) {
 
    }
-
    ngOnInit(): void {
-    this.ar.params.subscribe(a=> {
-      this.hoteldetailser.GetPropertyDetail(a['id']).subscribe(
-        d=> this.hotelDetail=d
-      )
-    })
+  
   }
 
 }

@@ -29,8 +29,6 @@ export interface IProperty {
   currencyName: string
   propertybeName: string
   stateName: string
-  user: User
-  property_amenities: PropertyAmenity[]
-  property_images: PropertyImage[]
-  property_reviews: PropertyReview[]
+  
+  
   }

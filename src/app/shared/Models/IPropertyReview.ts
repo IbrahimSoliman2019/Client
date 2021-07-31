@@ -1,6 +1,6 @@
 export interface PropertyReview {
     id: number
     comment: string
-    rating: string
+    rating: number
     image: string
   }

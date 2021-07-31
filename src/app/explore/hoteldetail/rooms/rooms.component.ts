@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PropertyImage } from 'src/app/shared/Models/IPropertyImage';
 import { Hoteldetail } from '../../Models/hoteldetail';
 import { HoteldetailService } from '../../services/hoteldetail.service';
 
@@ -9,18 +10,14 @@ import { HoteldetailService } from '../../services/hoteldetail.service';
   styleUrls: ['./rooms.component.scss']
 })
 export class RoomsComponent implements OnInit {
-
+@Input() images : PropertyImage[];
   hotelDetail = new Hoteldetail();
     constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ) {
 
    }
 
    ngOnInit(): void {
-    this.ar.params.subscribe(a=> {
-      this.hoteldetailser.GetPropertyDetail(a['id']).subscribe(
-        d=> this.hotelDetail=d
-      )
-    })
+  
   }
 
 

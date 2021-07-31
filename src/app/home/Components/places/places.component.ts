@@ -16,7 +16,7 @@ declare const L:any;
 export class PlacesComponent implements OnInit {
 
 
-  prop :IProperty[]=[];
+  prop :any;
 
   title = 'Client';
   constructor(private http:HttpClient ,public GlaSer :HomeService , public router :Router){}
@@ -24,7 +24,8 @@ export class PlacesComponent implements OnInit {
   ngOnInit(): void {
 
     this.GlaSer.Getproperty().subscribe(res=>{
-      this.prop=res["data"];
+      
+      this.prop=res;
     });
 
 

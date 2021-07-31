@@ -15,8 +15,10 @@ const routes: Routes = [
   {path:"login",component:LogInComponent},
   {path:"signup",component:SingupComponent},
   {path:"exp/:id",component:ExpComponent,canActivate:[AuthGuardService]},
+  {path:"details/:id",component:HotelDetailComponent,canActivate:[AuthGuardService]},
   // {path:"exp",loadChildren:()=>{import('./explore/explore.module').then(m=>m.ExploreModule)}},
   {path:"hoteldetails",component:HotelDetailComponent},
+
   {path:"location",component:LocationComponent}
 
 ];
