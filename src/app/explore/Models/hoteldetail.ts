@@ -1,3 +1,5 @@
+import { Byte } from "@angular/compiler/src/util";
+
 export class Hoteldetail {
 
   constructor(
@@ -12,13 +14,13 @@ export class Hoteldetail {
     public bathroom_count?: number,
     public accomodates_count?: number,
     public availability_tybe?: number,
-    public start_date?: string,
-    public end_date?: string,
+    public start_date?: Date,
+    public end_date?: Date,
     public price?: number,
-    public price_tybe?: number,
+    public price_tybe?: Byte,
     public minimum_stay?: number,
-    public minimum_stay_tybe?: number,
-    public refund_tybe?: number,
+    public minimum_stay_tybe?: Byte,
+    public refund_tybe?: Byte,
     public cityName?: string,
     public countryName?: string,
     public currencyName?: string,

@@ -8,8 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 
 
-
-
 @NgModule({
   declarations: [
     LogInComponent,

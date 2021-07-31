@@ -9,10 +9,13 @@ import { ExploreRoutingModule } from './hoteldetail/Explore-Routing';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { ExpComponent } from './exp/exp.component';
 import { AgmCoreModule } from '@agm/core';
+
 import { ExsearchComponent } from './exp/expsearch/exsearch/exsearch.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import {RatingModule} from 'primeng/rating';
 
 
 @NgModule({
@@ -27,14 +30,18 @@ import { SharedModule } from '../shared/shared.module';
 
   ],
   imports: [
+    // CommonModule,
+    // ExploreRoutingModule,
+    // AgmCoreModule,
     CommonModule,
     ExploreRoutingModule,
     AgmCoreModule,
     BrowserAnimationsModule,
     CalendarModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    RatingModule
   ],
-
 
   exports:[ExpComponent]
 })

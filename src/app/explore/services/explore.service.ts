@@ -9,14 +9,14 @@ import { environment } from 'src/environments/environment';
 })
 export class ExploreService {
   BaseUrl = environment.ApiUrl;
-//api/property?stateid=id
+  //api/property?stateid=id
   constructor(private http: HttpClient) { }
   GetProperties(id: number) {
     let params = new HttpParams();
     params = params.append('stateid', id.toString());//http //ibrahim hi map(res=>{
 
-   //return'hi'+name }) //rxjs
-   return  this.http.get<IProperty[]>(`${this.BaseUrl}/property`, { observe: 'response', params })
+    //return'hi'+name }) //rxjs
+    return this.http.get<IProperty[]>(`${this.BaseUrl}/property`, { observe: 'response', params })
       .pipe(map(res => {
         return res.body
       }));
