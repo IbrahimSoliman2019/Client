@@ -10,6 +10,5 @@ export interface Transaction {
   promo_code_id: number
   discount_amt: number
   promo_codes: PromoCodes
-  recevier: User
-  payee: User
+
   }
