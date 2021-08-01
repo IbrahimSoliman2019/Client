@@ -7,9 +7,8 @@ import { PropertyReview } from 'src/app/shared/Models/IPropertyReview';
   styleUrls: ['./reviews.component.scss']
 })
 export class ReviewsComponent implements OnInit {
-  @Input()Reviews :PropertyReview[] ;
+  @Input() Reviews :PropertyReview[] ;
   
-
 
   constructor() { }
 

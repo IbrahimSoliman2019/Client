@@ -12,7 +12,7 @@
               <div class="col-lg-3">
                 <div id="review_summary">
                   <strong>8.5</strong>
-                  <em>{{Reviews[0].comment}}</em>
+                  <em></em>
                   <small>Based on 4 reviews</small>
                 </div>
               </div>
@@ -71,25 +71,30 @@
 
           <div class="reviews-container">
 
-            <div class="review-box clearfix">
-              <figure class="rev-thumb"><img src="assets/img/people/testimonials-1.jpg" alt="">
+            <div class="review-box clearfix" *ngFor="let item of Reviews">
+              <figure class="rev-thumb"><img src="{{item.image}}" alt="">
               </figure>
               <div class="rev-content">
                 <div class="rating">
                   <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
                 </div>
                 <div class="rev-info">
-                  Admin – April 03, 2016:
+                  <!-- {{item.propertyReviewsDtos.Name}} – April 03, 2016: -->
                 </div>
                 <div class="rev-text">
                   <p>
-                    Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
+                    <!-- {{item.name_review}} -->
+                    {{item.comment}} ,
+                    {{item.userName}} ,
+                    {{item.rating}} ,
+                    {{item.image}}
+                    <!-- {{item.propertyReviewsDtos.comment}} -->
                   </p>
                 </div>
               </div>
             </div>
             <!-- /review-box -->
-            <div class="review-box clearfix">
+            <!-- <div class="review-box clearfix">
               <figure class="rev-thumb"><img src="assets/img/people/testimonials-2.jpg" alt="">
               </figure>
               <div class="rev-content">
@@ -105,9 +110,9 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /review-box -->
-            <div class="review-box clearfix">
+            <!-- <div class="review-box clearfix">
               <figure class="rev-thumb"><img src="assets/img/people/testimonials-3.jpg" alt="">
               </figure>
               <div class="rev-content">
@@ -119,11 +124,10 @@
                 </div>
                 <div class="rev-text">
                   <p>
-                    Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /review-box -->
           </div>
           <!-- /review-container -->

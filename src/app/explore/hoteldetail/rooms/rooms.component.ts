@@ -11,7 +11,7 @@ import { HoteldetailService } from '../../services/hoteldetail.service';
 })
 export class RoomsComponent implements OnInit {
 @Input() images : PropertyImage[];
-  hotelDetail = new Hoteldetail();
+ // hotelDetail = new Hoteldetail();
     constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ) {
 
    }

@@ -7,7 +7,8 @@
         <h3>Instagram photos feed</h3>
         <div id="instagram-feed-hotel" class="clearfix"></div>
         <hr>
-        <div class="room_type first">
+
+         <!-- <div class="room_type first">
           <div class="row">
             <div class="col-md-4">
               <img src="assets/img/rooms/room_comfort_style_fireplace.jpg" class="img-fluid" alt="">
@@ -25,10 +26,11 @@
               </ul>
             </div>
           </div>
-          <!-- /row -->
-        </div>
-        <!-- /rom_type -->
-        <div class="room_type gray">
+          
+          
+        </div> -->
+       
+         <!-- <div class="room_type gray">
           <div class="row">
             <div class="col-md-4">
               <img src="assets/img/rooms/room_furniture_light.jpg" class="img-fluid" alt="">
@@ -46,10 +48,10 @@
               </ul>
             </div>
           </div>
-          <!-- /row -->
-        </div>
-        <!-- /rom_type -->
-        <div class="room_type last">
+          
+        </div>  -->
+  
+         <!-- <div class="room_type last">
           <div class="row">
             <div class="col-md-4">
               <img src="assets/img/rooms/room_shelves_pillows.jpg" class="img-fluid" alt="">
@@ -68,9 +70,16 @@
               </ul>
             </div>
           </div>
-          <!-- /row -->
-        </div>
+  
+        </div>  -->
         <!-- /rom_type -->
+   
+
+    <div *ngFor="let item of images">
+          <img src="{{item.image}}">
+    </div>
+
+
 
       </section>
     </div>

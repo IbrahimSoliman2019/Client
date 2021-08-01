@@ -3,4 +3,5 @@ export interface PropertyReview {
     comment: string
     rating: number
     image: string
+    userName :string
   }
