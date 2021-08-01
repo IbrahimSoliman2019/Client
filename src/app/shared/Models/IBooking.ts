@@ -15,7 +15,5 @@ export interface Booking {
   cancel_date: string
   refund_paid: number
   effective_amount: number
-  property: IProperty
-  user: User
-  transaction: Transaction
+ 
   }
