@@ -241,17 +241,20 @@
         <div class="wrapper-grid">
           <div class="row">
             <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let item of properties">
-              <div class="box_grid" [routerLink]="['/hoteldetails', item.id]">
+              <div class="box_grid" [routerLink]="['/details',item.id]">
                 <figure>
                   <a href="#0" class="wish_bt liked"></a>
-                  <a href="tour-detail.html"><img src="assets/img/cities/bridge_architecture_gothic.jpg"
+                  <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
                       class="img-fluid" alt="" width="800" height="533"></a>
+
+                       <!-- <a ><img src="{{item.property_images}}"
+                        class="img-fluid" alt="" width="800" height="533"></a>  -->
 
                   <div class="read_more"><span>Read more</span></div>
                 </figure>
                 <div class="wrapper">
                   <h3><a href="tour-detail.html">{{item.name}}</a></h3>
-                  <p>{{item.description}}</p>
+                  <p>{{item.cities}}</p>
                   <span class="price">From <strong>${{item.price}}</strong> /per person</span>
                 </div>
                 <ul>
@@ -277,7 +280,7 @@
     </div>
     <!-- /isotope-wrapper -->
     <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
-    <app-pager [totalCount]="12" [pageSize]="2"></app-pager>
+    <!-- <app-pager [totalCount]="12" [pageSize]="2" (pageChanged)="Pagechanged($event)"></app-pager> -->
 
   </div>
   <!-- /container -->

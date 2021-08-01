@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PropertyReview } from 'src/app/shared/Models/IPropertyReview';
+import { PropertyDetilesRoot } from 'src/app/shared/Models/PropertyDetilesRoot';
 import { environment } from 'src/environments/environment';
 import { Hoteldetail } from '../Models/hoteldetail';
 import { Property } from '../property';
@@ -19,7 +20,7 @@ export class HoteldetailService {
   }
 
   GetPropertyDetail(id:number){
-    return this.http.get<Hoteldetail>(`${this.baseUrl}/property/${id}`);
+    return this.http.get<PropertyDetilesRoot>(`${this.baseUrl}/property/${id}`);
   }
 
   AddpropertyDetail(hotel:Hoteldetail) {

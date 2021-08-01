@@ -30,4 +30,5 @@ export interface IProperty {
   propertybeName: string
   stateName: string
 
+
   }

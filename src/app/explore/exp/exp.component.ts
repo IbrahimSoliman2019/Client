@@ -15,7 +15,7 @@ export class ExpComponent implements OnInit {
   stateid: number;
   properties: IProperty[]=[];
 
-propertyTypeId :number;  
+propertyTypeId :number;
 PropType :ProperityType[]=[];
   constructor(private route: ActivatedRoute, private expservice: ExploreService ,private PrType: ProperityTypeService ) {
 
@@ -47,7 +47,9 @@ PropType :ProperityType[]=[];
     })
 
 
+// Pagechanged(event:any){
 
+// }
 
 
 
