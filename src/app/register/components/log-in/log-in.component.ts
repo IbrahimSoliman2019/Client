@@ -17,7 +17,7 @@ export class LogInComponent implements OnInit {
   check:any;
   error:any;
   newUser:User;
-  
+
 
   Login(login:any)
   {
@@ -28,8 +28,8 @@ export class LogInComponent implements OnInit {
 
     this.UserSer.LoginUser(this.newUser).subscribe(a=>{
       alert("Welcome");
-      localStorage.setItem("token",a.token);   
-      this.route.navigateByUrl("/home");
+      localStorage.setItem("token",a.token);
+      this.route.navigateByUrl("");
     })
 
   }

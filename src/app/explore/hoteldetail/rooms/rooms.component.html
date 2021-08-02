@@ -1,13 +1,14 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-lg-8">
       <section id="description">
 
         <!-- /row -->
-        <h3>Instagram photos feed</h3>
+        <!-- <h3> photos feed</h3>
         <div id="instagram-feed-hotel" class="clearfix"></div>
-        <hr>
-        <div class="room_type first">
+        <hr> -->
+
+         <!-- <div class="room_type first">
           <div class="row">
             <div class="col-md-4">
               <img src="assets/img/rooms/room_comfort_style_fireplace.jpg" class="img-fluid" alt="">
@@ -25,10 +26,11 @@
               </ul>
             </div>
           </div>
-          <!-- /row -->
-        </div>
-        <!-- /rom_type -->
-        <div class="room_type gray">
+
+
+        </div> -->
+
+         <!-- <div class="room_type gray">
           <div class="row">
             <div class="col-md-4">
               <img src="assets/img/rooms/room_furniture_light.jpg" class="img-fluid" alt="">
@@ -46,10 +48,10 @@
               </ul>
             </div>
           </div>
-          <!-- /row -->
-        </div>
-        <!-- /rom_type -->
-        <div class="room_type last">
+
+        </div>  -->
+
+         <!-- <div class="room_type last">
           <div class="row">
             <div class="col-md-4">
               <img src="assets/img/rooms/room_shelves_pillows.jpg" class="img-fluid" alt="">
@@ -68,13 +70,76 @@
               </ul>
             </div>
           </div>
-          <!-- /row -->
-        </div>
+
+        </div>  -->
         <!-- /rom_type -->
 
-      </section>
+        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div *ngFor="let item of images">
+              <img src="{{item.image}}">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> -->
+        <!-- <p-carousel [value]="images">
+          <ng-template let-car pTemplate="item">
+
+              <img src="{{item.images}}">
+
+          </ng-template>
+        </p-carousel> -->
+
+    <!-- <div *ngFor="let item of images">
+          <img src="{{item.image}}">
+    </div> -->
+
+
+
+      <!-- </section>
     </div>
 
   </div>
 
-</div>
+</div> -->
+
+<!-- ======= Hotels Section ======= -->
+<section id="hotels" class="section-with-bg">
+
+  <div class="container" data-aos="fade-up">
+    <div class="section-header">
+      <h2>Photos</h2>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+      <!-- <div *ngFor="let item of images">
+          <img src="{{item.image}}">
+    </div> -->
+      <div class="col-lg-4 col-md-6" *ngFor="let item of images">
+        <div class="hotel">
+          <div class="hotel-img m-2" width="300px" height="300px" >
+            <img class="rommImage" width="100%" height="100%"  src="{{item.image}}">
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- End Hotels Section -->

@@ -16,6 +16,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import {RatingModule} from 'primeng/rating';
+import {CarouselModule} from 'primeng/carousel';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {RatingModule} from 'primeng/rating';
     CalendarModule,
     SharedModule,
     FormsModule,
-    RatingModule
+    RatingModule,
+    CarouselModule
   ],
 
   exports:[ExpComponent]

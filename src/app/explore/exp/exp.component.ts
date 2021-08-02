@@ -5,6 +5,7 @@ import { ProperityType } from 'src/app/home/properity-type';
 import { IProperty } from 'src/app/shared/Models/IProperty';
 import { Hoteldetail } from '../Models/hoteldetail';
 import { ExploreService } from '../services/explore.service';
+import {PropretyParams} from '../../shared/Models/PropertyParams';
 
 @Component({
   selector: 'app-exp',
@@ -12,7 +13,9 @@ import { ExploreService } from '../services/explore.service';
   styleUrls: ['./exp.component.scss']
 })
 export class ExpComponent implements OnInit {
-  stateid: number;
+
+proppertyparams : PropretyParams = new PropretyParams();
+
   properties: IProperty[]=[];
 
 propertyTypeId :number;
@@ -23,10 +26,11 @@ PropType :ProperityType[]=[];
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.stateid = params['id']
-                alert(this.stateid) ;
-      if (this.stateid) {
-        this.expservice.GetProperties(this.stateid).subscribe(res => {
+      this.proppertyparams.StateId = params['id'];
+
+      if (this.proppertyparams.StateId) {
+
+        this.expservice.GetProperties(this.proppertyparams).subscribe(res => {
           console.log(res["data"]);
           this.properties=res["data"];
           console.log(this.properties);
@@ -45,11 +49,13 @@ PropType :ProperityType[]=[];
         });
       }
     })
-
-
-// Pagechanged(event:any){
-
+// onPriceChecked(){
+//   this.proppertyparams.Price =
 // }
+
+//  Pagechanged(event:any){
+// this.proppertyparams.PageIndex = event;
+//  }
 
 
 
