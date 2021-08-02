@@ -18,7 +18,6 @@ const routes: Routes = [
   {path:"details/:id",component:HotelDetailComponent,canActivate:[AuthGuardService]},
   // {path:"exp",loadChildren:()=>{import('./explore/explore.module').then(m=>m.ExploreModule)}},
   {path:"hoteldetails",component:HotelDetailComponent},
-
   {path:"location",component:LocationComponent}
 
 ];

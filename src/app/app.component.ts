@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './register/Services/users.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
 
 
@@ -10,12 +11,17 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 })
 export class AppComponent implements OnInit {
 
-  
+
   title = 'Client';
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient,private userservice:UsersService){
 
   }
   ngOnInit(): void {
-    this.http.get("https://localhost:5001/api/products");
+    this.Loadcurrentuser();
+  }
+  Loadcurrentuser(){
+    this.userservice.loadCurrentUser().subscribe(res=>{
+      console.log('user loaded');
+    });
   }
 }

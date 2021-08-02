@@ -11,7 +11,12 @@ import { ExpComponent } from './exp/exp.component';
 import { AgmCoreModule } from '@agm/core';
 
 import { ExsearchComponent } from './exp/expsearch/exsearch/exsearch.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/calendar';
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import {RatingModule} from 'primeng/rating';
+import {CarouselModule} from 'primeng/carousel';
 
 
 @NgModule({
@@ -23,6 +28,7 @@ import { ExsearchComponent } from './exp/expsearch/exsearch/exsearch.component';
     MainSectionComponent,
     ExpComponent,
     ExsearchComponent,
+
   ],
   imports: [
     // CommonModule,
@@ -30,7 +36,13 @@ import { ExsearchComponent } from './exp/expsearch/exsearch/exsearch.component';
     // AgmCoreModule,
     CommonModule,
     ExploreRoutingModule,
-AgmCoreModule
+    AgmCoreModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    SharedModule,
+    FormsModule,
+    RatingModule,
+    CarouselModule
   ],
 
   exports:[ExpComponent]

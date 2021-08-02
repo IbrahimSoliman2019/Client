@@ -4,6 +4,6 @@ import { PropertyImage } from "./IPropertyImage";
 
 export interface PropertyRoot {
   propertyDTo: IProperty ,
-  propertiesimages:PropertyImage[] 
- 
+  propertiesimages:PropertyImage[]
+
 }

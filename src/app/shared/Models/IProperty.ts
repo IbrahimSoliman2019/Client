@@ -29,6 +29,6 @@ export interface IProperty {
   currencyName: string
   propertybeName: string
   stateName: string
-  
-  
+
+
   }

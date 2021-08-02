@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PropertyReview } from 'src/app/shared/Models/IPropertyReview';
 import { PropertyDetilesRoot } from 'src/app/shared/Models/PropertyDetilesRoot';
 import { environment } from 'src/environments/environment';
 import { Hoteldetail } from '../Models/hoteldetail';
@@ -32,6 +33,13 @@ export class HoteldetailService {
 
   DeletepropertyDetail(id:number) {
     return this.http.delete<Hoteldetail>(this.baseUrl+"/"+id);
+
+  }
+
+
+  GetAllPropertyReviews() {
+
+    return this.http.get<PropertyReview[]>(this.baseUrl+"/"+Property);
 
   }
 

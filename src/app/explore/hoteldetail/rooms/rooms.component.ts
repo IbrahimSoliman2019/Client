@@ -17,6 +17,10 @@ export class RoomsComponent implements OnInit {
    }
 
    ngOnInit(): void {
+<<<<<<< HEAD
+=======
+
+>>>>>>> afb722c7bda6b77d51660a123fa831a868f0fa61
   }
 
 
