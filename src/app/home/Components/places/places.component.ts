@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProperty } from 'src/app/shared/Models/IProperty';
+import { PropertyRoot } from 'src/app/shared/Models/PropertyRoot';
 import { HomeService } from '../Services/home.service';
 
 declare const L:any;
@@ -16,7 +17,7 @@ declare const L:any;
 export class PlacesComponent implements OnInit {
 
 
-  prop :any;
+  prop :PropertyRoot[];
 
   title = 'Client';
   constructor(private http:HttpClient ,public GlaSer :HomeService , public router :Router){}
@@ -24,10 +25,9 @@ export class PlacesComponent implements OnInit {
   ngOnInit(): void {
 
     this.GlaSer.Getproperty().subscribe(res=>{
-      
+      console.log(res);
       this.prop=res;
     });
-
 
 
     if (!navigator.geolocation) {

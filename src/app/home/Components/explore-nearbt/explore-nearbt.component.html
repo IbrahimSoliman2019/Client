@@ -11,9 +11,12 @@
           <div class="col-lg-4 col-md-6" *ngFor="let item of state">
             <div class="explore" data-aos="fade-up" [routerLink]="['/exp',item.id]" data-aos-delay="100">
               <!-- <a routerLink="explore/exp/{{item.id}}">waleed</a> -->
-              <img src="assets/img/cities/bridge_architecture_gothic.jpg" alt="explore 1" class="img-fluid">
+              <img src="{{item.pictureUrl}}" alt="explore 1" class="img-fluid imgstate">
               <div class="details">
                 <h3>{{item.name}}</h3>
+                <h3>{{item.countryName}}</h3>
+
+
                 <p>Three Hours Drive</p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>

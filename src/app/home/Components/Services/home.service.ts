@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IProperty } from 'src/app/shared/Models/IProperty';
+import { PropertyRoot } from 'src/app/shared/Models/PropertyRoot';
 import { environment } from 'src/environments/environment';
 import { State } from '../state';
 
@@ -26,7 +27,7 @@ export class HomeService {
   }
   
   Getproperty(){
-    return  this.http.get(`${this.BaseUrl}/property/Random`);
+    return  this.http.get<PropertyRoot[]>(`${this.BaseUrl}/property/Random`);
   }
 
 

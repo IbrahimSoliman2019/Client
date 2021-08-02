@@ -17,7 +17,6 @@ export class RoomsComponent implements OnInit {
    }
 
    ngOnInit(): void {
-  
   }
 
 

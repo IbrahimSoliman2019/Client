@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ProperityTypeService } from 'src/app/home/Components/Services/properity-type.service';
 import { ProperityType } from 'src/app/home/properity-type';
 import { IProperty } from 'src/app/shared/Models/IProperty';
+import { PropertyRoot } from 'src/app/shared/Models/PropertyRoot';
 import { Hoteldetail } from '../Models/hoteldetail';
 import { ExploreService } from '../services/explore.service';
 
@@ -13,7 +14,9 @@ import { ExploreService } from '../services/explore.service';
 })
 export class ExpComponent implements OnInit {
   stateid: number;
-  properties: IProperty[]=[];
+  properties: PropertyRoot[];
+
+
 
 propertyTypeId :number;  
 PropType :ProperityType[]=[];
@@ -24,7 +27,7 @@ PropType :ProperityType[]=[];
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.stateid = params['id']
-                alert(this.stateid) ;
+             //   alert(this.stateid) ;
       if (this.stateid) {
         this.expservice.GetProperties(this.stateid).subscribe(res => {
           console.log(res["data"]);
@@ -36,7 +39,7 @@ PropType :ProperityType[]=[];
 
     this.route.params.subscribe((params: Params) => {
       this.propertyTypeId = params['id']
-                alert(this.propertyTypeId) ;
+             //   alert(this.propertyTypeId) ;
       if (this.propertyTypeId) {
         this.PrType.GetPropType().subscribe(res => {
        //   console.log(res["data"]);

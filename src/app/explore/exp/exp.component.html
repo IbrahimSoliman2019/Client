@@ -241,33 +241,37 @@
         <div class="wrapper-grid">
           <div class="row">
             <div class="col-xl-4 col-lg-6 col-md-6" *ngFor="let item of properties">
-              <div class="box_grid" [routerLink]="['/details',item.id]">
+              <div class="box_grid" [routerLink]="['/details',item.propertyDTo.id]">
+             <div>
                 <figure>
                   <a href="#0" class="wish_bt liked"></a>
-                  <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
-                      class="img-fluid" alt="" width="800" height="533"></a>
+                  <!-- <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
+                      class="img-fluid" alt="" width="800" height="533"></a> -->
                       
-                       <!-- <a ><img src="{{item.property_images}}"
-                        class="img-fluid" alt="" width="800" height="533"></a>  -->
+                       <a> <img src="{{item.propertiesimages[0].image}}" 
+                        class="img-fluid" alt="" width="800" height="533"></a>  
 
                   <div class="read_more"><span>Read more</span></div>
                 </figure>
+                </div>
+
                 <div class="wrapper">
-                  <h3><a href="tour-detail.html">{{item.name}}</a></h3>
-                  <p>{{item.cities}}</p>
-                  <span class="price">From <strong>${{item.price}}</strong> /per person</span>
+                  <h3><a href="tour-detail.html">{{item.propertyDTo.name}}</a></h3>
+                  <p>{{item.propertyDTo.cities}}</p>
+                  <span class="price">From <strong>${{item.propertyDTo.Price}}</strong> /per person</span>
                 </div>
                 <ul>
                   <li><i class="icon_clock_alt"></i> 1h 30min</li>
                   <li>
-                    <div class="score"><span>Superb<em>
-                          Reviews</em></span><strong>{{item.property_reviews}}</strong></div>
+                    <!-- <div class="score"><span>Superb<em>
+                          Reviews</em></span><strong>{{item.property_reviews}}</strong></div> 
                   </li>
                 </ul>
               </div>
             </div>
             <!-- /box_grid -->
-
+</li>
+</ul>
             <!-- /box_grid -->
           </div>
           <!-- /row -->

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/register/Model/user';
 import { PropertyReview } from 'src/app/shared/Models/IPropertyReview';
 
 @Component({
@@ -8,7 +9,7 @@ import { PropertyReview } from 'src/app/shared/Models/IPropertyReview';
 })
 export class ReviewsComponent implements OnInit {
   @Input() Reviews :PropertyReview[] ;
-  
+  @Input()UserDetail :User[] ;
 
   constructor() { }
 
