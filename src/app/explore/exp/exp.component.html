@@ -29,27 +29,24 @@
         </li>
       </ul>
     </div>
-    <!-- /container -->
-  </div>
-  <!-- /filters -->
+  </div> -->
 
-  <div class="collapse" id="collapseMap">
+   <div class="collapse" id="collapseMap">
     <div id="map" class="map"></div>
-  </div>
-  <!-- End Map -->
+  </div> 
 
-  <div class="container margin_60_35">
+   <div class="container margin_60_35"> 
 
-    <div class="row">
+   <div class="row"> 
 
-      <aside class="col-lg-3">
-        <div class="custom-search-input-2 inner-2">
+       <aside class="col-lg-3"> 
+         <div class="custom-search-input-2 inner-2">
           <div class="form-group">
             <input class="form-control" type="text" placeholder="Terms...">
             <i class="icon_search"></i>
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Where" [(ngModel)]="search">
+            <input class="form-control" type="text" placeholder="Where" >
             <i class="icon_pin_alt"></i>
           </div>
           <div class="form-group">
@@ -62,11 +59,31 @@
             </select>
           </div>
           <input type="submit" class="btn_search" value="Search">
-        </div>
+        </div> 
 
 
 
 
+
+
+        <section filter="condition" class="mb-4">
+          <h6 class="font-weight-bold mb-3">Type of Place</h6>
+           <div class="form-check pl-0 mb-3" *ngFor="let type of PropertyTypes">
+            <input type="checkbox" class="filter-option form-check-input filled-in" condition="newtype" (change)="OnPropertyTypeChecked(checked,type.value)"  [value]="type.value" />
+            <label class="form-check-label small text-uppercase card-link-secondary" for="{{type.value}}">{{type.value}}</label>
+          </div>
+        </section>
+        <!-- Section: Place Type -->
+        <!-- Section: Price -->
+        <section class="mb-4" filter="price">
+          <h6 class="font-weight-bold mb-3">Price</h6>
+          <div class="form-check pl-0 mb-3" *ngFor="let price of Prices">
+            <input [value]="price.value" (change)="onPriceChecked(checked,price.value)" type="radio" class="filter-option form-check-input" id="{{price.description}}"
+              name="materialExampleRadios" />
+            <label class="form-check-label small text-uppercase card-link-secondary" for="{{price.description}}">{{price.description}}</label>
+          </div>
+        </section>
+      
 
 
 
@@ -101,7 +118,7 @@
 
 
         <!-- Section: Condition -->
-        <section filter="condition" class="mb-4">
+        <!-- <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Condition</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -122,10 +139,10 @@
             <input condition="renewed" type="checkbox" class="filter-option form-check-input filled-in" id="renewed" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Room</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Condition -->
         <!-- Section: Place Type -->
-        <section filter="condition" class="mb-4">
+        <!-- <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Type of Place</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -149,10 +166,10 @@
             <label class="form-check-label small text-uppercase card-link-secondary" for="renewedtype">Shared
               Room</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Place Type -->
         <!-- Section: Price -->
-        <section class="mb-4" filter="price">
+        <!-- <section class="mb-4" filter="price">
           <h6 class="font-weight-bold mb-3">Price</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -180,10 +197,10 @@
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="200above">$200 & Above</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Price -->
         <!-- Section: Property -->
-        <section filter="condition" class="mb-4">
+        <!-- <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Property Type</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -218,11 +235,11 @@
               id="remadeproperty" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="remadeproperty">King</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Property -->
 
         <!-- Section: Guests -->
-        <section class="mb-4" filter="price">
+        <!-- <section class="mb-4" filter="price">
           <h6 class="font-weight-bold mb-3">Guests</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -255,10 +272,9 @@
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="6 Guests">6 Guests</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Guests -->
-      </aside>
-      <!-- /aside -->
+       </aside> 
 
       <div class="col-lg-9">
 
@@ -269,8 +285,7 @@
              <div>
                 <figure>
                   <a href="#0" class="wish_bt liked"></a>
-                  <!-- <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
-                      class="img-fluid" alt="" width="800" height="533"></a> -->
+                 
                       
                        <a> <img src="{{item.propertiesimages[0].image}}" 
                         class="img-fluid" alt="" width="800" height="533"></a>  
@@ -287,28 +302,18 @@
                 <ul>
                   <li><i class="icon_clock_alt"></i> 1h 30min</li>
                   <li>
-                    <!-- <div class="score"><span>Superb<em>
-                          Reviews</em></span><strong>{{item.property_reviews}}</strong></div> 
-                  </li>
-                </ul>
-              </div>
-            </div>
-           /box_grid -->
+                   
 </li>
 </ul>
-            <!-- /box_grid -->
           </div>
         </div>
 
       </div>
     </div>
-    <!-- /isotope-wrapper -->
     <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
-    <!-- <app-pager [totalCount]="12" [pageSize]="6" (pageChanged)="Pagechanged($event)"></app-pager> -->
-
-  </div>
+  </div> -->
   <!-- /container -->
-  <div class="bg_color_1">
+   <div class="bg_color_1">
     <div class="container margin_60_35">
       <div class="row">
         <div class="col-md-4">
@@ -333,10 +338,8 @@
           </a>
         </div>
       </div>
-      <!-- /row -->
     </div>
-    <!-- /container -->
-  </div>
+  </div> -->
   <!-- /bg_color_1 -->
 
   <!-- </main> -->
@@ -353,10 +356,10 @@
       var selector = $(this).attr('data-filter');
       $('.isotope-wrapper').isotope({ filter: selector });
     });
-  </script>
+  </script> -->
 
   <!-- Range Slider -->
-  <script>
+   <script>
     $("#range").ionRangeSlider({
       hide_min_max: true,
       keyboard: true,
@@ -369,4 +372,31 @@
       prefix: "Km ",
       grid: false
     });
-  </script>
+  </script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -36,24 +36,16 @@ paymentPost :PaymentPostingContainer ;
    this.paymentPost.transactionDto=new Transaction();
    this.paymentPost.paymentDto=new PaymentDto();
 
-
    }
    ngOnInit(): void {
 
   }
-
   Order()
   {
     console.log(this.paymentPost);
    this.OnPost();
-
-
-
-  //  this.hoteldetailser.PostPayment(this.paymentPost).subscribe (a=>{
-  //    this.paymentPost=a;
-  //    this.route.navigateByUrl("/description");
-
-  // })
+   console.log("sucss");
+  
   }
 
 
