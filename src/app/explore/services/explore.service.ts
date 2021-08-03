@@ -6,6 +6,7 @@ import { PropertyRoot } from 'src/app/shared/Models/PropertyRoot';
 import { environment } from 'src/environments/environment';
 import {PropretyParams} from '../../shared/Models/PropertyParams';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,12 +24,8 @@ export class ExploreService {
     params = params.append('PropertyType ',propertyparams.PropertyType.toString());
 
 
-<<<<<<< HEAD
     //return'hi'+name }) //rxjs
     return this.http.get<PropertyRoot[]>(`${this.BaseUrl}/property`, { observe: 'response', params })
-=======
-    return this.http.get<IProperty[]>(`${this.BaseUrl}/property`, { observe: 'response', params })
->>>>>>> afb722c7bda6b77d51660a123fa831a868f0fa61
       .pipe(map(res => {
         return res.body
       }));

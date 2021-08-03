@@ -17,6 +17,8 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import {RatingModule} from 'primeng/rating';
 import {CarouselModule} from 'primeng/carousel';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 @NgModule({
@@ -28,12 +30,13 @@ import {CarouselModule} from 'primeng/carousel';
     MainSectionComponent,
     ExpComponent,
     ExsearchComponent,
-
+    
+    
   ],
   imports: [
     // CommonModule,
     // ExploreRoutingModule,
-    // AgmCoreModule,
+    AgmCoreModule,
     CommonModule,
     ExploreRoutingModule,
     AgmCoreModule,
@@ -42,7 +45,10 @@ import {CarouselModule} from 'primeng/carousel';
     SharedModule,
     FormsModule,
     RatingModule,
-    CarouselModule
+    CarouselModule,
+    InputNumberModule,
+    CheckboxModule,
+
   ],
 
   exports:[ExpComponent]

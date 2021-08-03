@@ -1,14 +1,15 @@
 import { PromoCodes } from "./IPromoCodes";
 import { User } from "./IUser";
 
-export interface Transaction {
+export class Transaction {
   id: number
-  site_fees: number
-  amount: number
-  trancfer_on: string
-  currency_id: number
-  promo_code_id: number
-  discount_amt: number
-  promo_codes: PromoCodes
-
+constructor(
+ public site_fees= 0 ,
+ public  amount=0 ,
+ public  trancfer_on=Date.now(),
+  public currency_id=0,
+  public promo_code_id=0,
+ public discount_amt=0,
+//  promo_codes: PromoCodes
+ ){}
   }

@@ -7,7 +7,6 @@
       <a href="#about" class="about-btn scrollto">About The Website</a>
     </div>
   </section><!-- End Hero Section -->
-
   <nav class="secondary_nav sticky_horizontal">
     <div class="container">
       <ul class="clearfix">
@@ -31,7 +30,6 @@
                 <li>The Bed count   {{hotelDetail.bed_count}} In Room </li>
                 <li>The bathroom count {{hotelDetail.bathroom_count }} In Room </li>
                 <li> Strat Date Booking {{hotelDetail.start_date}}</li>
-
               </ul>
             </div>
             <div class="col-lg-6">
@@ -52,37 +50,39 @@
         <div class="box_detail booking">
           <div class="price">
             <span>{{hotelDetail.price}}$ <small>person</small></span>
-            <div class="score"><span>Good<em>350 Reviews</em></span><strong></strong></div>
+            <!-- <div class="score"><span>Good<em>350 Reviews</em></span><strong></strong></div> -->
           </div>
 
-          <div class="form-group">
-            <input class="form-control" type="text" name="dates" placeholder="When..">
-            <i class="icon_calendar"></i>
+           <div class="form-group">
+            <div class="p-field p-col-12 p-md-4">
+              <p-calendar [(ngModel)]="check_in_date" dateFormat="mm-dd-yy" placeholder="Check IN.." inputId="dateformat"></p-calendar>
           </div>
+          
+          <div class="p-field p-col-12 p-md-4">
+            <p-calendar [(ngModel)]="check_out_date" dateFormat="mm-dd-yy" placeholder="Check Out.." inputId="dateformat"></p-calendar>
+        </div>
 
-          <div class="panel-dropdown">
-            <a href="#">Guests <span class="qtyTotal">1</span></a>
-            <div class="panel-dropdown-content right">
-              <div class="qtyButtons">
-                <label>Adults</label>
-                <input type="text" name="qtyInput" value="1">
+
+
+            <!-- <i class="icon_calendar"></i> -->
+            <!-- <h6 class="p-field ">Guest</h6> -->
+              <!-- <p-calendar [(ngModel)]="value" placeholder="When.." class="form-group"></p-calendar> -->
+                <div class="p-field p-col-12 p-md-3">
+                  <label for="minmax-buttons">Guest: Adults-Childern </label>
+                  <p-inputNumber [(ngModel)]="NumberofGuest"  mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="10">
+                  </p-inputNumber>
               </div>
-              <div class="qtyButtons">
-                <label>Childrens</label>
-                <input type="text" name="qtyInput" value="0">
-              </div>
-            </div>
           </div>
 
           <div class="form-group clearfix">
-            <div class="custom-select-form">
+            <!-- <div class="custom-select-form">
               <select class="wide">
                 <option>Room Type</option>
                 <option>Single Room</option>
                 <option>Double Room</option>
                 <option>Suite Room</option>
               </select>
-            </div>
+            </div> -->
           </div>
           <!-- Click on Modal Button -->
 					<a href="cart-1.html" class=" add_top_30 btn_1 full-width purchase" data-bs-toggle="modal" data-bs-target="#modalForm">Purchase</a>
@@ -99,27 +99,31 @@
 									<form>
 										<div class="mb-3">
 											<label for="cartnmber" class="form-label">Cart Number</label>
-											<input type="text" class="form-control" id="cartnmber" name="cartnmber" placeholder="Cart Number" />
+											<input type="text" [(ngModel)]="this.paymentPost.paymentDto.cardNumber" class="form-control" id="cartnmber" name="cartnmber" placeholder="Cart Number" />
 										</div>
 										<div class="mb-3">
 											<label for="month" class="form-label">Month</label>
-											<input type="text" class="form-control" id="month" name="month" placeholder="Month" />
+											<input type="text" [(ngModel)]="this.paymentPost.paymentDto.month" class="form-control" id="month" name="month" placeholder="Month" />
 										</div>
 										<div class="mb-3">
 											<label for="year" class="form-label">Year</label>
-											<input type="text" class="form-control" id="year" name="year" placeholder="Year" />
+											<input type="text" [(ngModel)]="this.paymentPost.paymentDto.year" class="form-control" id="year" name="year" placeholder="Year" />
 										</div>
-										<div class="mb-3">
+                    <div class="mb-3">
+											<label for="CVC" class="form-label">CVC</label>
+											<input type="text" [(ngModel)]="this.paymentPost.paymentDto.cvc" class="form-control" id="CVC" name="CVC" placeholder="CVC" />
+										</div>
+										<!-- <div class="mb-3">
 											<label for="reservationdate" class="form-label">reservation date</label>
-											<input type="date" class="form-control" id="reservationdate" name="reservationdate" placeholder="Enter reservation date" />
-										</div>
+											<input type="date" [(ngModel)]="this.paymentPost.paymentDto." class="form-control" id="reservationdate" name="reservationdate" placeholder="Enter reservation date" />
+										</div> -->
                     <!-- <div class="mb-3">
                       <p-calendar formControlName="date" showIcon="true" dateFormat="dd.mm.yy" ></p-calendar>
 										</div> -->
 
 										<div class="modal-footer d-block">
 											<p class="float-start">Not yet account <a href="#">Sign Up</a></p>
-											<button type="submit" class="btn btn-success float-end">Order</button>
+											<button type="submit" (click)="Order()"  class="btn btn-success float-end">Order</button>
 										</div>
 									</form>
 								</div>
@@ -129,11 +133,11 @@
           <a href="wishlist.html" class="btn_1 full-width outline wishlist"><i class="icon_heart"></i> Add to wishlist</a>
           <div class="text-center"><small>No money charged in this step</small></div>
         </div>
-        <ul class="share-buttons">
+        <!-- <ul class="share-buttons">
           <li><a class="fb-share" href="#0"><i class="social_facebook"></i> Share</a></li>
           <li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Tweet</a></li>
           <li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Share</a></li>
-        </ul>
+        </ul> -->
       </aside>
       <hr>
     </div>

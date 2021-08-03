@@ -1,4 +1,3 @@
-<app-main-section></app-main-section>
 
 
 <main>
@@ -44,16 +43,13 @@
     <div class="row">
 
       <aside class="col-lg-3">
-
-
-
         <div class="custom-search-input-2 inner-2">
           <div class="form-group">
             <input class="form-control" type="text" placeholder="Terms...">
             <i class="icon_search"></i>
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Where">
+            <input class="form-control" type="text" placeholder="Where" [(ngModel)]="search">
             <i class="icon_pin_alt"></i>
           </div>
           <div class="form-group">
@@ -67,6 +63,42 @@
           </div>
           <input type="submit" class="btn_search" value="Search">
         </div>
+
+
+
+
+
+
+
+
+
+<!-- <section>
+
+        <h5>Multiple</h5>
+<div class="p-field-checkbox">
+    <p-checkbox name="group1" value="New York" [(ngModel)]="SelectPrice" inputId="ny"></p-checkbox>
+    <label for="ny">New York</label>
+</div>
+<div class="p-field-checkbox">
+    <p-checkbox name="group1" value="San Francisco" [(ngModel)]="SelectPrice" inputId="sf"></p-checkbox>
+    <label for="sf">San Francisco</label>
+</div>
+<div class="p-field-checkbox">
+    <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="SelectPrice" inputId="la"></p-checkbox>
+    <label for="la">Los Angeles</label>
+</div>
+<div class="p-field-checkbox">
+    <p-checkbox name="group1" value="Chicago" [(ngModel)]="SelectPrice" inputId="ch"></p-checkbox>
+    <label for="ch">Chicago</label>
+</div>
+
+</section> -->
+
+
+
+
+
+
 
         <!-- Section: Condition -->
         <section filter="condition" class="mb-4">
@@ -92,9 +124,6 @@
           </div>
         </section>
         <!-- Section: Condition -->
-
-
-
         <!-- Section: Place Type -->
         <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Type of Place</h6>
@@ -122,30 +151,27 @@
           </div>
         </section>
         <!-- Section: Place Type -->
-
-
-
         <!-- Section: Price -->
         <section class="mb-4" filter="price">
           <h6 class="font-weight-bold mb-3">Price</h6>
 
           <div class="form-check pl-0 mb-3">
-            <input price="0-25" type="radio" class="filter-option form-check-input" id="under25"
+            <input price="0-25" type="radio" [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="under25"
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="under25">Under $25</label>
           </div>
           <div class="form-check pl-0 mb-3">
-            <input price="25-50" type="radio" class="filter-option form-check-input" id="2550"
+            <input price="25-50" type="radio" [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="2550"
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="2550">$25 to $50</label>
           </div>
           <div class="form-check pl-0 mb-3">
-            <input price="50-100" type="radio" class="filter-option form-check-input" id="50100"
+            <input price="50-100" type="radio" [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="50100"
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="50100">$50 to $100</label>
           </div>
           <div class="form-check pl-0 mb-3">
-            <input price="100-200" type="radio" class="filter-option form-check-input" id="100200"
+            <input price="100-200" type="radio"  [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="100200"
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="100200">$100 to $200</label>
           </div>
@@ -156,7 +182,6 @@
           </div>
         </section>
         <!-- Section: Price -->
-
         <!-- Section: Property -->
         <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Property Type</h6>
@@ -232,7 +257,6 @@
           </div>
         </section>
         <!-- Section: Guests -->
-
       </aside>
       <!-- /aside -->
 
@@ -245,19 +269,11 @@
              <div>
                 <figure>
                   <a href="#0" class="wish_bt liked"></a>
-<<<<<<< HEAD
                   <!-- <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
                       class="img-fluid" alt="" width="800" height="533"></a> -->
                       
                        <a> <img src="{{item.propertiesimages[0].image}}" 
                         class="img-fluid" alt="" width="800" height="533"></a>  
-=======
-                  <a ><img src="assets/img/cities/bridge_architecture_gothic.jpg"
-                      class="img-fluid" alt="" width="800" height="533"></a>
-
-                       <!-- <a ><img src="{{item.property_images}}"
-                        class="img-fluid" alt="" width="800" height="533"></a>  -->
->>>>>>> afb722c7bda6b77d51660a123fa831a868f0fa61
 
                   <div class="read_more"><span>Read more</span></div>
                 </figure>
@@ -277,18 +293,14 @@
                 </ul>
               </div>
             </div>
-            <!-- /box_grid -->
+           /box_grid -->
 </li>
 </ul>
             <!-- /box_grid -->
           </div>
-          <!-- /row -->
         </div>
-        <!-- /isotope-wrapper -->
-        <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
 
       </div>
-      <!-- /container -->
     </div>
     <!-- /isotope-wrapper -->
     <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
@@ -296,7 +308,6 @@
 
   </div>
   <!-- /container -->
-
   <div class="bg_color_1">
     <div class="container margin_60_35">
       <div class="row">

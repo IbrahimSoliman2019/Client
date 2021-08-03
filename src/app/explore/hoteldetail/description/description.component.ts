@@ -1,7 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotelsComponent } from 'src/app/home/Components/hotels/hotels.component';
+import { Booking } from 'src/app/shared/Models/IBooking';
+import { PaymentDto } from 'src/app/shared/Models/IPaymentDto';
 import { IProperty } from 'src/app/shared/Models/IProperty';
+import { Transaction } from 'src/app/shared/Models/ITransaction';
+import { PaymentPostingContainer } from 'src/app/shared/Models/PaymentPostingContainer';
+import { PropertyDetilesRoot } from 'src/app/shared/Models/PropertyDetilesRoot';
 import { Hoteldetail } from '../../Models/hoteldetail';
 import { HoteldetailService } from '../../services/hoteldetail.service';
 
@@ -13,13 +18,79 @@ import { HoteldetailService } from '../../services/hoteldetail.service';
 export class DescriptionComponent implements OnInit {
   // hotelDetail = new Hoteldetail();
   @Input() hotelDetail :IProperty;
+  check_in_date:Date;
+  check_out_date:Date;
 
+  
+  
+  
+  NumberofGuest: number;
   prop:IProperty ;
-    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService  ) {
+ 
+paymentPost :PaymentPostingContainer ;
+
+
+    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ,public route: Router  ) {
+   this.paymentPost= new PaymentPostingContainer();
+   this.paymentPost.bookingDTO=new Booking();
+   this.paymentPost.transactionDto=new Transaction();
+   this.paymentPost.paymentDto=new PaymentDto();
+
 
    }
    ngOnInit(): void {
-  
+
   }
+
+  Order()
+  {
+    console.log(this.paymentPost);
+   this.OnPost();
+
+
+
+  //  this.hoteldetailser.PostPayment(this.paymentPost).subscribe (a=>{
+  //    this.paymentPost=a;
+  //    this.route.navigateByUrl("/description");
+
+  // })
+  }
+
+
+
+OnPost()
+{
+  this.CalculateBooking();
+  this.CalculateTransaction();
+  this.paymentPost.paymentDto.amount=this.paymentPost.bookingDTO.effective_amount;
+  this.paymentPost.paymentDto.description=this.hotelDetail.description;
+  this.paymentPost.propertyId=this.hotelDetail.id;
+  this.hoteldetailser.PostPayment(this.paymentPost).subscribe(res=>{
+    console.log('successful payment');
+  })
+
+
+}
+
+CalculateBooking(){
+  let priceperday = this.hotelDetail.price;
+  let priceperstay = priceperday*((this.check_out_date.getDate()-this.check_in_date.getDate())/1000*60*60*24)*this.NumberofGuest;
+  let taxpaid = priceperstay*.05;
+  let site_fees = priceperstay*.15;
+  let effective_amount = priceperstay*.8;
+  this.paymentPost.bookingDTO=new Booking(priceperday ,priceperstay,taxpaid,site_fees,effective_amount) ;
+}
+
+CalculateTransaction()
+{
+  let priceperday = this.hotelDetail.price;
+  let priceperstay = priceperday*((this.check_out_date.getDate()-this.check_in_date.getDate())/1000*60*60*24)*this.NumberofGuest;
+  let sitefees = priceperstay*.15;
+  let amount =priceperstay*.8 ;
+  this.paymentPost.transactionDto=new Transaction(sitefees,amount) ;
+}
+
+
+
 
 }

@@ -1,5 +1,4 @@
 
-
 <div class="bg_color_1">
   <div class="container margin_60_35">
     <div class="row">
@@ -80,49 +79,15 @@
                   {{item.userName}} - {{item.created | date :short}}
                 </div>
                 <div class="rev-text">
-<<<<<<< HEAD
-                  <div class="reviews-container">     
-                           <div class="review-box clearfix" *ngFor="let item of Reviews">         
-                                  <div class="rev-content">         
-                                           <div class="rating"> 
-                                                   <p-rating [(ngModel)]="item.rating" readonly="true" cancel [stars]="5"></p-rating> 
-                                                                 </div> 
-                                              <div class="rev-info">  
-                                            {{item.userName}} - {{item.created | date :short}}
-                  </div>               
-                   <div class="rev-text">  
-                                     <p>{{item.comment}}</p>  
-
-                                </div>  
-                                          </div>    
-                                                    <hr>            </div>
-
-
-
-
-                  <p>
-                    <!-- {{item.name_review}} -->
-                    {{item.comment}} ,
-                    {{item.userName}} ,
-                    {{item.rating}} ,
-                    {{item.image}}
-                    <!-- {{item.propertyReviewsDtos.comment}} -->
-                  </p>
-=======
                   <p>{{item.comment}}</p>
 
->>>>>>> afb722c7bda6b77d51660a123fa831a868f0fa61
                 </div>
               </div>
               <hr>
 
             </div>
-<<<<<<< HEAD
-       
-=======
             <!-- /review-box -->
 
->>>>>>> afb722c7bda6b77d51660a123fa831a868f0fa61
           </div>
           <!-- /review-container -->
         
@@ -131,7 +96,7 @@
 
             <div class="add-review">
               <h5>Leave a Review</h5>
-              <form #review="ngForm">
+              <form>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label>Name and Lastname *</label>
@@ -159,8 +124,8 @@
                 </div>
               </form>
             </div>
+            </section>
       </div>
-</section>
     </div>
 
   </div>
