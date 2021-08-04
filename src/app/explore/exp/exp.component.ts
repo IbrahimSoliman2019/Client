@@ -143,6 +143,7 @@ import { Hoteldetail } from '../Models/hoteldetail';
 import { ExploreService } from '../services/explore.service';
 import { PropretyParams } from '../../shared/Models/PropertyParams';
 import { getParseErrors } from '@angular/compiler';
+import { PropertyRoot } from 'src/app/shared/Models/PropertyRoot';
 @Component({
   selector: 'app-exp',
   templateUrl: './exp.component.html',
@@ -150,7 +151,8 @@ import { getParseErrors } from '@angular/compiler';
 })
 export class ExpComponent implements OnInit {
   proppertyparams: PropretyParams = new PropretyParams();
-  properties: IProperty[] = [];
+  properties: PropertyRoot[];
+  TotalCount:Number;
 
   
   Prices = [
@@ -194,7 +196,9 @@ export class ExpComponent implements OnInit {
   }
   getProperties() {
     this.expservice.GetProperties(this.proppertyparams).subscribe((res) => {
-      this.properties = res['data'];
+      this.TotalCount=res.count;
+      
+      this.properties = res.data;
     });
   }
   onPriceChecked(checked: boolean, value: number) {
@@ -205,7 +209,14 @@ export class ExpComponent implements OnInit {
     if (checked) this.proppertyparams.PropertyType = value;
     this.getProperties();
   }
-  //  Pagechanged(event:any){
-  // this.proppertyparams.PageIndex = event;
-  //  }
+
+
+
+
+  Pagechanged(event: any) {
+    if (this.proppertyparams.PageIndex != event)
+      this.proppertyparams.PageIndex = event;
+    this.getProperties();
+  }
+  
 }

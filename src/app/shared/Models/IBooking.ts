@@ -4,7 +4,7 @@ import { Transaction } from "./ITransaction";
 
 export class Booking {
   id: number
-  public check_in_date: Date 
+  public check_in_date: Date
  public check_out_date: Date
 
   constructor(

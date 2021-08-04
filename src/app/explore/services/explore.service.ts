@@ -5,6 +5,7 @@ import { IProperty } from 'src/app/shared/Models/IProperty';
 import { PropertyRoot } from 'src/app/shared/Models/PropertyRoot';
 import { environment } from 'src/environments/environment';
 import {PropretyParams} from '../../shared/Models/PropertyParams';
+import {Pagination} from '../../shared/Models/Pagination';
 
 
 @Injectable({
@@ -24,8 +25,8 @@ export class ExploreService {
     params = params.append('PropertyType ',propertyparams.PropertyType.toString());
 
 
-    //return'hi'+name }) //rxjs
-    return this.http.get<PropertyRoot[]>(`${this.BaseUrl}/property`, { observe: 'response', params })
+   
+    return this.http.get<Pagination>(`${this.BaseUrl}/property`, { observe: 'response', params })
       .pipe(map(res => {
         return res.body
       }));

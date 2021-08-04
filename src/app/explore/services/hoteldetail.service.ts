@@ -30,7 +30,7 @@ export class HoteldetailService {
     let headers = new HttpHeaders();
     let token = localStorage.getItem('token');
     headers = headers.set('Authorization', `Bearer ${token}`);
-    return this.http.post<PaymentPostingContainer>(`${this.baseUrl}/reservation`,model,{headers});
+    return this.http.post<PaymentPostingContainer>(`${this.baseUrl}/Reservation`,model,{headers});
   }
 
 

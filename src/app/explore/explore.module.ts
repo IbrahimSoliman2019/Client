@@ -19,6 +19,7 @@ import {RatingModule} from 'primeng/rating';
 import {CarouselModule} from 'primeng/carousel';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {CheckboxModule} from 'primeng/checkbox';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -48,6 +49,10 @@ import {CheckboxModule} from 'primeng/checkbox';
     CarouselModule,
     InputNumberModule,
     CheckboxModule,
+    ToastrModule.forRoot({
+      positionClass:'toast-bottom-right',
+      preventDuplicates:true
+    })
 
   ],
 

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HotelsComponent } from 'src/app/home/Components/hotels/hotels.component';
 import { Booking } from 'src/app/shared/Models/IBooking';
 import { PaymentDto } from 'src/app/shared/Models/IPaymentDto';
@@ -30,7 +31,7 @@ export class DescriptionComponent implements OnInit {
 paymentPost :PaymentPostingContainer ;
 
 
-    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ,public route: Router  ) {
+    constructor(public ar:ActivatedRoute,public hoteldetailser:HoteldetailService ,public route: Router,private toastr:ToastrService  ) {
    this.paymentPost= new PaymentPostingContainer();
    this.paymentPost.bookingDTO=new Booking();
    this.paymentPost.transactionDto=new Transaction();
@@ -58,7 +59,7 @@ OnPost()
   this.paymentPost.paymentDto.description=this.hotelDetail.description;
   this.paymentPost.propertyId=this.hotelDetail.id;
   this.hoteldetailser.PostPayment(this.paymentPost).subscribe(res=>{
-    console.log('successful payment');
+    this.toastr.success("Successiful Payment");
   })
 
 
