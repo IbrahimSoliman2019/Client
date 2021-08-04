@@ -57,7 +57,7 @@
             <i class="icon_pin_alt"></i>
           </div>
           <div class="form-group">
-            <select class="wide">
+            <select class="wide" >
               <option>District</option>
               <option>All</option>
               <option>Alexandria</option>
@@ -99,27 +99,11 @@
         <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Type of Place</h6>
 
-          <div class="form-check pl-0 mb-3">
-            <input type="checkbox" class="filter-option form-check-input filled-in" condition="newtype" id="newtype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="newtype">Entire Place</label>
+           <div class="form-check pl-0 mb-3" *ngFor="let type of PropertyTypes">
+            <input type="checkbox" class="filter-option form-check-input filled-in" condition="newtype" (change)="OnPropertyTypeChecked(checked,type.value)"  [value]="type.value" />
+            <label class="form-check-label small text-uppercase card-link-secondary" for="{{type.value}}">{{type.value}}</label>
           </div>
-          <div class="form-check pl-0 mb-3">
-            <input condition="usedtype" type="checkbox" class="filter-option form-check-input filled-in"
-              id="usedtype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="usedtype">Private Room</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input condition="collectibletype" type="checkbox" class="filter-option form-check-input filled-in"
-              id="collectibletype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="collectibletype">Hotel
-              Room</label>
-          </div>
-          <div class="form-check pl-0 mb-3 pb-1">
-            <input condition="renewedtype" type="checkbox" class="filter-option form-check-input filled-in"
-              id="renewedtype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="renewedtype">Shared
-              Room</label>
-          </div>
+         
         </section>
         <!-- Section: Place Type -->
 
@@ -129,31 +113,12 @@
         <section class="mb-4" filter="price">
           <h6 class="font-weight-bold mb-3">Price</h6>
 
-          <div class="form-check pl-0 mb-3">
-            <input price="0-25" type="radio" class="filter-option form-check-input" id="under25"
+          <div class="form-check pl-0 mb-3" *ngFor="let price of Prices">
+            <input [value]="price.value" (change)="onPriceChecked(checked,price.value)" type="radio" class="filter-option form-check-input" id="{{price.description}}"
               name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="under25">Under $25</label>
+            <label class="form-check-label small text-uppercase card-link-secondary" for="{{price.description}}">{{price.description}}</label>
           </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="25-50" type="radio" class="filter-option form-check-input" id="2550"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="2550">$25 to $50</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="50-100" type="radio" class="filter-option form-check-input" id="50100"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="50100">$50 to $100</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="100-200" type="radio" class="filter-option form-check-input" id="100200"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="100200">$100 to $200</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="200-*" type="radio" class="filter-option form-check-input" id="200above"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="200above">$200 & Above</label>
-          </div>
+       
         </section>
         <!-- Section: Price -->
 

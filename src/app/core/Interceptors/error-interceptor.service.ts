@@ -1,4 +1,5 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -19,7 +20,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
-      catchError((error) => {
+      catchError((error:HttpErrorResponse) => {
         if (error) {
           if (error.status == 400) {
             if(error.error.errors){
