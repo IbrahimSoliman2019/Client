@@ -4,52 +4,23 @@
 
   <nav id="menu" class="main-menu"></nav>
 
-  <div class="filters_listing sticky_horizontal">
-    <div class="container">
-      <ul class="clearfix">
-        <li>
-          <div class="switch-field">
-            <input type="radio" id="all" name="listing_filter" value="all" checked data-filter="*" class="selected">
-            <label for="all">All</label>
-            <input type="radio" id="popular" name="listing_filter" value="popular" data-filter=".popular">
-            <label for="popular">Popular</label>
-            <input type="radio" id="latest" name="listing_filter" value="latest" data-filter=".latest">
-            <label for="latest">Latest</label>
-          </div>
-        </li>
-        <li>
-          <div class="layout_view">
-            <a href="#0" class="active"><i class="icon-th"></i></a>
-            <a href="hotels-list-sidebar.html"><i class="icon-th-list"></i></a>
-          </div>
-        </li>
-        <li>
-          <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false"
-            aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
-        </li>
-      </ul>
-    </div>
-    <!-- /container -->
-  </div>
+
   <!-- /filters -->
 
-  <div class="collapse" id="collapseMap">
-    <div id="map" class="map"></div>
-  </div>
   <!-- End Map -->
 
   <div class="container margin_60_35">
 
-    <div class="row">
+    <div class="row my-5">
 
       <aside class="col-lg-3">
-        <div class="custom-search-input-2 inner-2">
+        <!-- <div class="custom-search-input-2 inner-2">
           <div class="form-group">
             <input class="form-control" type="text" placeholder="Terms...">
             <i class="icon_search"></i>
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Where">
+            <input class="form-control" type="text" (keyup)="OnKey($event)" placeholder="Where">
             <i class="icon_pin_alt"></i>
           </div>
           <div class="form-group">
@@ -62,7 +33,7 @@
             </select>
           </div>
           <input type="submit" class="btn_search" value="Search">
-        </div>
+        </div> -->
 
 
 
@@ -71,7 +42,7 @@
         <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Type of Place</h6>
            <div class="form-check pl-0 mb-3" *ngFor="let type of PropertyTypes">
-            <input type="checkbox" class="filter-option form-check-input filled-in" condition="newtype" (change)="OnPropertyTypeChecked(checked,type.value)"  [value]="type.value" />
+            <input type="checkbox" class="filter-option form-check-input filled-in" condition="newtype" (change)="OnPropertyTypeChecked($event)"  [value]="type.value" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="{{type.value}}">{{type.value}}</label>
           </div>
         </section>
@@ -80,128 +51,20 @@
         <section class="mb-4" filter="price">
           <h6 class="font-weight-bold mb-3">Price</h6>
           <div class="form-check pl-0 mb-3" *ngFor="let price of Prices">
-            <input [value]="price.value" (change)="onPriceChecked(checked,price.value)" type="radio" class="filter-option form-check-input" id="{{price.description}}"
-              name="materialExampleRadios" />
+            <!-- arrray.for() -->
+            <!-- change(e,100) -->
+            <!--  -->
+            <input [value]="price.value" (change)="onPriceChecked($event)" type="radio" class="filter-option form-check-input" id="{{price.description}}"
+              name="price" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="{{price.description}}">{{price.description}}</label>
           </div>
         </section>
 
 
 
-
-
-<!-- <section>
-
-        <h5>Multiple</h5>
-<div class="p-field-checkbox">
-    <p-checkbox name="group1" value="New York" [(ngModel)]="SelectPrice" inputId="ny"></p-checkbox>
-    <label for="ny">New York</label>
-</div>
-<div class="p-field-checkbox">
-    <p-checkbox name="group1" value="San Francisco" [(ngModel)]="SelectPrice" inputId="sf"></p-checkbox>
-    <label for="sf">San Francisco</label>
-</div>
-<div class="p-field-checkbox">
-    <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="SelectPrice" inputId="la"></p-checkbox>
-    <label for="la">Los Angeles</label>
-</div>
-<div class="p-field-checkbox">
-    <p-checkbox name="group1" value="Chicago" [(ngModel)]="SelectPrice" inputId="ch"></p-checkbox>
-    <label for="ch">Chicago</label>
-</div>
-
-</section> -->
-
-
-
-
-
-
-
-        <!-- Section: Condition -->
-        <!-- <section filter="condition" class="mb-4">
-          <h6 class="font-weight-bold mb-3">Condition</h6>
-
-          <div class="form-check pl-0 mb-3">
-            <input type="checkbox" class="filter-option form-check-input filled-in" condition="new" id="new" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="new">Apartment</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input condition="used" type="checkbox" class="filter-option form-check-input filled-in" id="used" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="used">Hotel</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input condition="collectible" type="checkbox" class="filter-option form-check-input filled-in"
-              id="collectible" />
-            <label class="form-check-label small text-uppercase card-link-secondary"
-              for="collectible">Restaurant</label>
-          </div>
-          <div class="form-check pl-0 mb-3 pb-1">
-            <input condition="renewed" type="checkbox" class="filter-option form-check-input filled-in" id="renewed" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Room</label>
-          </div>
-        </section> -->
-        <!-- Section: Condition -->
-        <!-- Section: Place Type -->
-        <!-- <section filter="condition" class="mb-4">
-          <h6 class="font-weight-bold mb-3">Type of Place</h6>
-
-          <div class="form-check pl-0 mb-3">
-            <input type="checkbox" class="filter-option form-check-input filled-in" condition="newtype" id="newtype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="newtype">Entire Place</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input condition="usedtype" type="checkbox" class="filter-option form-check-input filled-in"
-              id="usedtype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="usedtype">Private Room</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input condition="collectibletype" type="checkbox" class="filter-option form-check-input filled-in"
-              id="collectibletype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="collectibletype">Hotel
-              Room</label>
-          </div>
-          <div class="form-check pl-0 mb-3 pb-1">
-            <input condition="renewedtype" type="checkbox" class="filter-option form-check-input filled-in"
-              id="renewedtype" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="renewedtype">Shared
-              Room</label>
-          </div>
-        </section> -->
-        <!-- Section: Place Type -->
-        <!-- Section: Price -->
-        <!-- <section class="mb-4" filter="price">
-          <h6 class="font-weight-bold mb-3">Price</h6>
-
-          <div class="form-check pl-0 mb-3">
-            <input price="0-25" type="radio" [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="under25"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="under25">Under $25</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="25-50" type="radio" [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="2550"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="2550">$25 to $50</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="50-100" type="radio" [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="50100"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="50100">$50 to $100</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="100-200" type="radio"  [(ngModel)]="this.proppertyparams.Price" class="filter-option form-check-input" id="100200"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="100200">$100 to $200</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <input price="200-*" type="radio" class="filter-option form-check-input" id="200above"
-              name="materialExampleRadios" />
-            <label class="form-check-label small text-uppercase card-link-secondary" for="200above">$200 & Above</label>
-          </div>
-        </section> -->
         <!-- Section: Price -->
         <!-- Section: Property -->
-        <section filter="condition" class="mb-4">
+        <!-- <section filter="condition" class="mb-4">
           <h6 class="font-weight-bold mb-3">Property Type</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -236,11 +99,11 @@
               id="remadeproperty" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="remadeproperty">King</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Property -->
 
         <!-- Section: Guests -->
-        <section class="mb-4" filter="price">
+        <!-- <section class="mb-4" filter="price">
           <h6 class="font-weight-bold mb-3">Guests</h6>
 
           <div class="form-check pl-0 mb-3">
@@ -273,7 +136,7 @@
               name="materialExampleRadios" />
             <label class="form-check-label small text-uppercase card-link-secondary" for="6 Guests">6 Guests</label>
           </div>
-        </section>
+        </section> -->
         <!-- Section: Guests -->
       </aside>
       <!-- /aside -->
@@ -300,11 +163,11 @@
                 <div class="wrapper">
                   <h3><a href="tour-detail.html">{{item.propertyDTo.name}}</a></h3>
                   <p>{{item.propertyDTo.cities}}</p>
-                  <span class="price">From <strong>${{item.propertyDTo.Price}}</strong> /per person</span>
+                  <span class="price">From <strong>${{item.propertyDTo.price}}</strong> /per person</span>
                 </div>
-                <ul>
+                <!-- <ul>
                   <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                  <li>
+                  <li> -->
                     <!-- <div class="score"><span>Superb<em>
                           Reviews</em></span><strong>{{item.property_reviews}}</strong></div> 
                   </li>
@@ -312,8 +175,8 @@
               </div>
             </div>
            /box_grid -->
-</li>
-</ul>
+<!-- </li>
+</ul> -->
             <!-- /box_grid -->
           </div>
         </div>
@@ -322,7 +185,8 @@
     </div>
     <!-- /isotope-wrapper -->
     <p class="text-center"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
-    <!-- <app-pager [totalCount]="12" [pageSize]="6" (pageChanged)="Pagechanged($event)"></app-pager> -->
+    <!-- <app-pager [totalCount]="this.TotalCount"[pageSize]="6" (pageChanged)="Pagechanged($event)"></app-pager>
+    <app-pager [totalCount]="12" [pageSize]="6" (pageChanged)="Pagechanged($event)"></app-pager> -->
 
   </div>
   <!-- /container -->

@@ -55,11 +55,12 @@ OnPost()
 {
   this.CalculateBooking();
   this.CalculateTransaction();
-  this.paymentPost.paymentDto.amount=this.paymentPost.bookingDTO.effective_amount;
+  this.paymentPost.paymentDto.amount=parseInt(this.paymentPost.bookingDTO.effective_amount.toString())*1000;
   this.paymentPost.paymentDto.description=this.hotelDetail.description;
   this.paymentPost.propertyId=this.hotelDetail.id;
   this.hoteldetailser.PostPayment(this.paymentPost).subscribe(res=>{
     this.toastr.success("Successiful Payment");
+    // this.toastr.success( (this.paymentPost.paymentDto.amount/100).toString());
   })
 
 
@@ -67,7 +68,7 @@ OnPost()
 
 CalculateBooking(){
   let priceperday = this.hotelDetail.price;
-  let priceperstay = priceperday*((this.check_out_date.getDate()-this.check_in_date.getDate())/1000*60*60*24)*this.NumberofGuest;
+  let priceperstay = priceperday*((this.check_out_date.getDate()-this.check_in_date.getDate())/24)*this.NumberofGuest;
   let taxpaid = priceperstay*.05;
   let site_fees = priceperstay*.15;
   let effective_amount = priceperstay*.8;
@@ -77,7 +78,7 @@ CalculateBooking(){
 CalculateTransaction()
 {
   let priceperday = this.hotelDetail.price;
-  let priceperstay = priceperday*((this.check_out_date.getDate()-this.check_in_date.getDate())/1000*60*60*24)*this.NumberofGuest;
+  let priceperstay = priceperday*((this.check_out_date.getDate()-this.check_in_date.getDate())/24)*this.NumberofGuest;
   let sitefees = priceperstay*.15;
   let amount =priceperstay*.8 ;
   this.paymentPost.transactionDto=new Transaction(sitefees,amount) ;

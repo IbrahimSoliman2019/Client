@@ -184,7 +184,7 @@ export class ExpComponent implements OnInit {
     });
     this.route.params.subscribe((params: Params) => {
       this.propertyTypeId = params['id'];
-      alert(this.propertyTypeId);
+      // alert(this.propertyTypeId);
       if (this.propertyTypeId) {
         this.PrType.GetPropType().subscribe((res) => {
           //   console.log(res["data"]);
@@ -195,20 +195,36 @@ export class ExpComponent implements OnInit {
     });
   }
   getProperties() {
+    console.log(this.proppertyparams);
     this.expservice.GetProperties(this.proppertyparams).subscribe((res) => {
       this.TotalCount=res.count;
       
       this.properties = res.data;
     });
   }
-  onPriceChecked(checked: boolean, value: number) {
-    if (checked) this.proppertyparams.Price = value;
+  onPriceChecked(event:any) {
+   
+    if (event.target.checked)
+    { this.proppertyparams.Price = event.target.value;
+    
+    
+    }
+    //  this.proppertyparams.Price = value;
+    // console.log(value)
+
+    console.log(this.proppertyparams.Price);
     this.getProperties();
   }
-  OnPropertyTypeChecked(checked: boolean, value: string) {
-    if (checked) this.proppertyparams.PropertyType = value;
+  OnPropertyTypeChecked(event:any) {
+    if (event.target.checked) this.proppertyparams.PropertyType = event.target.value;
+    console.log("in type");
+    
     this.getProperties();
   }
+  OnKey(event:any){
+  if(event.target.value)this.proppertyparams.CityName=event.target.value;
+  this.getProperties();
+}
 
 
 

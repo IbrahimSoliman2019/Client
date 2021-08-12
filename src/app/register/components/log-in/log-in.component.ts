@@ -1,9 +1,11 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { User } from '../../Model/user';
 import {UsersService } from '../../Services/users.service' ;
+
 
 @Component({
   selector: 'app-log-in',
@@ -27,7 +29,7 @@ export class LogInComponent implements OnInit {
     this.newUser = new User("", this.email, this.password);
 
     this.UserSer.LoginUser(this.newUser).subscribe(a=>{
-      alert("Welcome");
+      this.toaster.success(`Welcom ${a.displayName} in Our Website`);
       localStorage.setItem("token",a.token);
       this.route.navigateByUrl("");
     })
@@ -37,7 +39,7 @@ export class LogInComponent implements OnInit {
 
 
 
-  constructor(public UserSer:UsersService,public route:Router,private auth:AuthGuardService) {}
+  constructor(public UserSer:UsersService,public route:Router,private auth:AuthGuardService,private toaster:ToastrService) {}
 
   ngOnInit(): void {
   }

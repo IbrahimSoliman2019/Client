@@ -34,7 +34,7 @@ user :User;
 
 
    this.UsSer.AddNewUser(this.newUser).subscribe(a=>{
-      alert("Done")
+     this.toastr.success("Sign Up Successful")
       this.route.navigateByUrl("/login");
      
    })

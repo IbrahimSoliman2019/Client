@@ -16,6 +16,8 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { ErrorInterceptorService } from './core/Interceptors/error-interceptor.service';
 import {ToastrModule} from 'ngx-toastr'
 import { AgmCoreModule } from '@agm/core';
+import { animation } from '@angular/animations';
+import { HostModule } from './host/host/host.module';
 
 //import {SharedModule} from './shared/shared/shared.module'
 
@@ -42,11 +44,16 @@ import { AgmCoreModule } from '@agm/core';
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    HostModule,
+    ToastrModule.forRoot({
+      positionClass:'toast-bottom-right',
+      preventDuplicates:true
+    }),
     ExploreModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCgoOr6OO93EA_lObLJzxlaW0-4MwKiPl0'
-    })
+    }),
+    
 
   ],
 

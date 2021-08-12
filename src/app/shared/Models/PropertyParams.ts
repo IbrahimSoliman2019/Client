@@ -3,6 +3,7 @@ export class PropretyParams{
   StateId: number ;
   PropertyType:string;
   PageIndex=1;
+  CityName:string;
 
 
 
